@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const posts = [
+  {
+    title: "Understanding GLP-1 Peptides",
+    excerpt: "A comprehensive guide to GLP-1 peptides and their role in weight management.",
+    date: "2024-03-20",
+    author: "Dr. Sarah Chen",
+    category: "Weight Loss"
+  },
+  {
+    title: "BPC-157: The Body Protection Compound",
+    excerpt: "Explore the healing and recovery benefits of BPC-157 peptide.",
+    date: "2024-03-18",
+    author: "Dr. Michael Roberts",
+    category: "Recovery"
+  },
+  {
+    title: "Peptides for Brain Health",
+    excerpt: "How specific peptides can enhance cognitive function and mental clarity.",
+    date: "2024-03-15",
+    author: "Dr. James Wilson",
+    category: "Cognitive Health"
+  }
+];
+---
+
+<Layout title="Blog">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">Latest Articles</h1>
+    
+    <div class="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => (
+        <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div class="p-6">
+            <div class="flex flex-wrap items-center gap-2 text-sm text-primary-600 mb-2">
+              <span>{post.category}</span>
+              <span class="hidden sm:inline">•</span>
+              <time datetime={post.date} class="text-gray-500">{new Date(post.date).toLocaleDateString()}</time>
+            </div>
+            <h2 class="text-xl font-bold text-gray-900 mb-2">
+              <a href="#" class="hover:text-primary-600 transition-colors duration-200">{post.title}</a>
+            </h2>
+            <p class="text-gray-500 mb-4 line-clamp-3">{post.excerpt}</p>
+            <div class="text-sm text-gray-500">
+              By {post.author}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</Layout>
