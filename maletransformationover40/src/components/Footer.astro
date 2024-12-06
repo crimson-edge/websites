@@ -1,50 +1,55 @@
 ---
 import SocialIcon from './SocialIcon.astro';
+
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-gray-900 text-white mt-16">
-  <div class="container mx-auto px-4 py-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div>
-        <h3 class="font-bold text-lg mb-4">Male Transformation</h3>
-        <p class="text-gray-400">Empowering men over 40 to achieve their fitness and wellness goals.</p>
+<footer class="bg-white border-t border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-8 md:mb-0">
+        <h2 class="text-2xl font-bold text-gray-900">Male Transformation Over 40</h2>
+        <p class="mt-2 text-gray-600 max-w-md">Empowering men over 40 to achieve their optimal health and fitness goals.</p>
       </div>
-      <div>
-        <h3 class="font-bold text-lg mb-4">Quick Links</h3>
-        <ul class="space-y-2">
-          <li><a href="/" class="text-gray-400 hover:text-white">Home</a></li>
-          <li><a href="/blog" class="text-gray-400 hover:text-white">Blog</a></li>
-        </ul>
+      <div class="flex space-x-6">
+        <SocialIcon platform="facebook" username="maletransformationover40" />
+        <SocialIcon platform="instagram" username="maletransformationover40" />
+        <SocialIcon platform="youtube" username="maletransformationover40" />
       </div>
-      <div>
-        <h3 class="font-bold text-lg mb-4">Contact</h3>
-        <p class="text-gray-400 mb-4">info@maletransformation.me</p>
-        <div class="flex gap-4">
-          <SocialIcon
-            href="https://instagram.com/maletransformation"
-            icon="fa-instagram"
-            label="Follow us on Instagram"
-          />
-          <SocialIcon
-            href="https://facebook.com/maletransformation"
-            icon="fa-facebook"
-            label="Follow us on Facebook"
-          />
-          <SocialIcon
-            href="https://twitter.com/maletransform"
-            icon="fa-twitter"
-            label="Follow us on Twitter"
-          />
-          <SocialIcon
-            href="https://youtube.com/maletransformation"
-            icon="fa-youtube"
-            label="Subscribe to our YouTube channel"
-          />
+    </div>
+    
+    <div class="mt-8 pt-8 border-t border-gray-200">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Navigation</h3>
+          <ul class="mt-4 space-y-4">
+            <li><a href="/" class="text-base text-gray-500 hover:text-gray-900">Home</a></li>
+            <li><a href="/about" class="text-base text-gray-500 hover:text-gray-900">About</a></li>
+            <li><a href="/blog" class="text-base text-gray-500 hover:text-gray-900">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Legal</h3>
+          <ul class="mt-4 space-y-4">
+            <li><a href="/privacy" class="text-base text-gray-500 hover:text-gray-900">Privacy Policy</a></li>
+            <li><a href="/terms" class="text-base text-gray-500 hover:text-gray-900">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Contact</h3>
+          <ul class="mt-4 space-y-4">
+            <li class="text-base text-gray-500">
+              <a href="mailto:info@maletransformationover40.com" class="hover:text-gray-900">
+                info@maletransformationover40.com
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-      <p>&copy; {new Date().getFullYear()} Male Transformation Over 40. All rights reserved.</p>
+    
+    <div class="mt-8 pt-8 border-t border-gray-200">
+      <p class="text-center text-base text-gray-400">&copy; {currentYear} Male Transformation Over 40. All rights reserved.</p>
     </div>
   </div>
 </footer>
