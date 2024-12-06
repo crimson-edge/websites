@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+
+const resources = [
+  {
+    title: 'Credit Repair Magic',
+    description: 'Transform your credit score and unlock financial opportunities',
+    icon: '⭐',
+    href: 'http://credit.crimsonedgeventures.com'
+  },
+  {
+    title: 'Wealth Switch',
+    description: 'The SECRET KEY To Financial Success',
+    icon: '🔑',
+    href: 'https://www.digistore24.com/redir/413844/CrimsonEdge/'
+  },
+  {
+    title: 'Calculators',
+    description: 'Interactive tools to help you plan your financial future',
+    icon: '🧮',
+    href: '#calculators'
+  },
+  {
+    title: 'Tutorials',
+    description: 'Step-by-step guides to master your finances',
+    icon: '📚',
+    href: '#tutorials'
+  },
+  {
+    title: 'Tools',
+    description: 'Essential tools for budgeting and tracking',
+    icon: '🛠️',
+    href: '#tools'
+  },
+  {
+    title: 'Resources',
+    description: 'Curated collection of financial resources',
+    icon: '📑',
+    href: '#resources'
+  }
+];
+---
+
+<Layout title="Money Mastery Resources">
+  <div class="bg-gradient-to-b from-primary-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
+      <div class="text-center">
+        <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 font-display mb-4 sm:mb-6">
+          Master Your Money,<br class="hidden sm:inline" />
+          <span class="text-primary-600">Secure Your Future</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed px-4">
+          Financial literacy is the foundation of personal and economic freedom. It encompasses essential skills like credit management, smart budgeting, income optimization, and strategic planning. Understanding these elements empowers you to make informed decisions about retirement savings, tax efficiency, investment diversification, and debt management. By mastering these fundamental aspects, you can build generational wealth, protect your assets, and achieve lasting financial independence.
+        </p>
+        <div class="flex flex-col items-center space-y-4">
+          <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+            <a href="http://credit.crimsonedgeventures.com" class="w-full sm:w-auto px-6 sm:px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white rounded-lg hover:from-yellow-500 hover:to-yellow-600 transition-all transform hover:scale-105 shadow-lg text-base sm:text-lg font-semibold text-center">
+              Credit Repair Magic
+            </a>
+            <a href="https://www.digistore24.com/redir/413844/CrimsonEdge/" class="w-full sm:w-auto px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg hover:from-blue-600 hover:to-indigo-700 transition-all transform hover:scale-105 shadow-lg text-base sm:text-lg font-semibold text-center">
+              Wealth Switch - SECRET KEY
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Section -->
+  <section class="py-12 sm:py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-6 sm:mb-8">Featured Resources</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 max-w-4xl mx-auto">
+        <a href="http://credit.crimsonedgeventures.com" class="block p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+          <div class="flex items-center space-x-4">
+            <div class="bg-yellow-100 p-3 rounded-full flex-shrink-0">
+              <span class="text-2xl sm:text-3xl">⭐</span>
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-1">Credit Repair Magic</h3>
+              <p class="text-sm sm:text-base text-gray-600">Transform your credit score and unlock financial opportunities</p>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.digistore24.com/redir/413844/CrimsonEdge/" class="block p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+          <div class="flex items-center space-x-4">
+            <div class="bg-blue-100 p-3 rounded-full flex-shrink-0">
+              <span class="text-2xl sm:text-3xl">🔑</span>
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-1">Wealth Switch</h3>
+              <p class="text-sm sm:text-base text-gray-600">The SECRET KEY To Financial Success</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8 sm:mb-12">Everything You Need</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        {resources.map(resource => (
+          <ResourceCard {...resource} />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
