@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 import ResourceCard from '../components/ResourceCard.astro';
+import VideoPlayer from '../components/VideoPlayer.astro';
 ---
 
 <Layout title="Home">
@@ -14,9 +15,12 @@ import ResourceCard from '../components/ResourceCard.astro';
         <p class="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0">
           Your ultimate toolkit for extreme couponing, loyalty rewards, and smart shopping strategies.
         </p>
-        <a href="#resources" class="inline-block bg-primary text-white px-6 sm:px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors text-base sm:text-lg">
+        <a href="#resources" class="inline-block bg-primary text-white px-6 sm:px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors text-base sm:text-lg mb-12">
           Explore Resources
         </a>
+        <div class="mt-8">
+          <VideoPlayer videoId="Ij4ti3_sCco" title="Save Earn Share Introduction" />
+        </div>
       </div>
     </div>
   </div>
