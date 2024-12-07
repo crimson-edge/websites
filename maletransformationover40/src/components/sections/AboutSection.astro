@@ -1,0 +1,32 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<section class="mb-16 px-4 sm:px-6">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center sm:text-left">About Me</h2>
+    <div class="grid sm:grid-cols-2 gap-6 sm:gap-8 items-center">
+      <div class="order-2 sm:order-1">
+        <img 
+          src="/trainer-profile.jpg" 
+          alt="Professional Trainer" 
+          class="rounded-lg shadow-md w-full max-w-md mx-auto"
+          width="400"
+          height="400"
+        />
+      </div>
+      <div class="order-1 sm:order-2">
+        <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 text-center sm:text-left">Walt Edgecomb III</h3>
+        <p class="text-gray-600 mb-4">
+          With nearly 40 years of experience in fitness and transformation coaching, I specialize in helping men over 40 achieve their health and fitness goals. As someone who went through my own transformation journey, I understand the unique challenges and opportunities that come with getting fit after 40.
+        </p>
+        <p class="text-gray-600 mb-6">
+          My approach combines proven training methods, nutrition science, hormone replacement therapy (TRT), and lifestyle optimization to help you achieve sustainable results while maintaining balance in your life.
+        </p>
+        <div class="text-center sm:text-left">
+          <Button href="/contact">Get in Touch</Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

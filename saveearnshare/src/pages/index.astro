@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import VideoPlayer from '../components/VideoPlayer.astro';
+---
+
+<Layout title="Home">
+  <div class="bg-gradient-to-b from-white to-background">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+      <div class="text-center">
+        <h1 class="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-gray-900 mb-4 sm:mb-6">
+          Save Big, Shop Smart
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0">
+          Your ultimate toolkit for extreme couponing, loyalty rewards, and smart shopping strategies.
+        </p>
+        <a href="#resources" class="inline-block bg-primary text-white px-6 sm:px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors text-base sm:text-lg mb-12">
+          Explore Resources
+        </a>
+        <div class="mt-8">
+          <VideoPlayer videoId="Ij4ti3_sCco" title="Save Earn Share Introduction" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="features" class="py-12 sm:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-8 sm:mb-12 text-center">Essential Tools & Resources</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <FeatureCard
+          title="Coupon Database"
+          description="Search through our extensive database of digital and printable coupons."
+          icon="database"
+        />
+        <FeatureCard
+          title="Savings Calculator"
+          description="Plan your savings and calculate potential returns from stacking coupons."
+          icon="calculator"
+        />
+        <FeatureCard
+          title="Weekly Deals"
+          description="Stay updated with the best deals and offers from major retailers."
+          icon="tag"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section id="resources" class="py-12 sm:py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-8 sm:mb-12 text-center">Latest Resources</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <ResourceCard
+          title="Beginner's Guide"
+          description="Learn the basics of extreme couponing and smart shopping strategies."
+          href="/blog/beginners-guide"
+        />
+        <ResourceCard
+          title="Store Policies"
+          description="Comprehensive guide to major retailers' coupon and price matching policies."
+          href="/blog/store-policies"
+        />
+        <ResourceCard
+          title="Digital Tools"
+          description="Essential apps and websites for maximizing your savings."
+          href="/blog/digital-tools"
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
