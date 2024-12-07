@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ResourceCard from '../components/ResourceCard.astro';
+import VideoPlayer from '../components/VideoPlayer.astro';
 
 const resources = [
   {
@@ -50,18 +51,20 @@ const resources = [
           Master Your Money,<br class="hidden sm:inline" />
           <span class="text-primary-600">Secure Your Future</span>
         </h1>
-        <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed px-4">
-          Financial literacy is the foundation of personal and economic freedom. It encompasses essential skills like credit management, smart budgeting, income optimization, and strategic planning. Understanding these elements empowers you to make informed decisions about retirement savings, tax efficiency, investment diversification, and debt management. By mastering these fundamental aspects, you can build generational wealth, protect your assets, and achieve lasting financial independence.
+        <p class="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
+          Your journey to financial freedom starts here. Discover tools, resources, and strategies to take control of your financial future.
         </p>
-        <div class="flex flex-col items-center space-y-4">
-          <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
-            <a href="http://credit.crimsonedgeventures.com" class="w-full sm:w-auto px-6 sm:px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white rounded-lg hover:from-yellow-500 hover:to-yellow-600 transition-all transform hover:scale-105 shadow-lg text-base sm:text-lg font-semibold text-center">
-              Credit Repair Magic
-            </a>
-            <a href="https://www.digistore24.com/redir/413844/CrimsonEdge/" class="w-full sm:w-auto px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg hover:from-blue-600 hover:to-indigo-700 transition-all transform hover:scale-105 shadow-lg text-base sm:text-lg font-semibold text-center">
-              Wealth Switch - SECRET KEY
-            </a>
-          </div>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+          <a href="#resources" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 md:text-lg">
+            Explore Resources
+          </a>
+          <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-700 bg-primary-100 hover:bg-primary-200 md:text-lg">
+            Contact Us
+          </a>
+        </div>
+        
+        <div class="mt-8 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <VideoPlayer videoId="qfmjVYUyOek" title="Money Mastery Resources Introduction" />
         </div>
       </div>
     </div>
