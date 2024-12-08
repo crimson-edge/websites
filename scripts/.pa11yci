@@ -1,0 +1,17 @@
+{
+  "defaults": {
+    "standard": "WCAG2AAA",
+    "runners": ["axe"],
+    "ignore": [
+      "WCAG2AAA.Principle1.Guideline1_4.1_4_3_Contrast_Minimum",
+      "WCAG2AAA.Principle1.Guideline1_4.1_4_6_Contrast_Enhanced"
+    ]
+  },
+  "urls": [
+    "http://localhost:4321/",
+    "http://localhost:4321/blog",
+    "http://localhost:4321/blog/getting-started-budgeting",
+    "http://localhost:4321/blog/investment-strategies-beginners",
+    "http://localhost:4321/blog/understanding-credit-scores"
+  ]
+}

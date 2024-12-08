@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ProductHighlight from '../components/ProductHighlight.astro';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
@@ -9,20 +10,59 @@ import '@fontsource/space-grotesk/700.css';
 
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
 }
 
-const { title } = Astro.props;
+const { 
+  title, 
+  description = "Money Mastery Resources - Your comprehensive guide to financial freedom, budgeting, debt management, and wealth building.",
+  image = "/og-image.png",
+  canonicalURL = Astro.url.origin
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Money Mastery Resources - Your guide to financial freedom" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- Primary Meta Tags -->
     <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Generator -->
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin />
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH74QJ8NYZ"></script>
@@ -30,14 +70,31 @@ const { title } = Astro.props;
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-BH74QJ8NYZ');
     </script>
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col antialiased text-gray-900 bg-white">
     <Header />
-    <main class="flex-grow">
+    <main class="flex-grow w-full">
       <slot />
+      <div class="container mx-auto px-4 mt-8">
+        <div class="grid md:grid-cols-2 gap-6">
+          <ProductHighlight 
+            title="Credit Repair Magic" 
+            description="Transform your credit score with our proven, AI-powered credit repair system. Boost your financial potential today!"
+            buttonText="Get Started Now" 
+            buttonLink="http://credit.crimsonedgeventures.com"
+            imageUrl="/images/credit-repair-magic.jpg"
+          />
+          <ProductHighlight 
+            title="Wealth Switch" 
+            description="Unlock your financial potential with our revolutionary wealth-building algorithm. Take control of your financial destiny!"
+            buttonText="Activate Wealth Switch" 
+            buttonLink="https://www.digistore24.com/redir/413844/CrimsonEdge/"
+            imageUrl="/images/wealth-switch.jpg"
+          />
+        </div>
+      </div>
     </main>
     <Footer />
   </body>

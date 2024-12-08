@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ResourceCard from '../components/ResourceCard.astro';
 import VideoPlayer from '../components/VideoPlayer.astro';
+import FinancialCalculators from '../components/FinancialCalculators.astro';
 
 const resources = [
   {
@@ -15,30 +16,6 @@ const resources = [
     description: 'The SECRET KEY To Financial Success',
     icon: '🔑',
     href: 'https://www.digistore24.com/redir/413844/CrimsonEdge/'
-  },
-  {
-    title: 'Calculators',
-    description: 'Interactive tools to help you plan your financial future',
-    icon: '🧮',
-    href: '#calculators'
-  },
-  {
-    title: 'Tutorials',
-    description: 'Step-by-step guides to master your finances',
-    icon: '📚',
-    href: '#tutorials'
-  },
-  {
-    title: 'Tools',
-    description: 'Essential tools for budgeting and tracking',
-    icon: '🛠️',
-    href: '#tools'
-  },
-  {
-    title: 'Resources',
-    description: 'Curated collection of financial resources',
-    icon: '📑',
-    href: '#resources'
   }
 ];
 ---
@@ -54,15 +31,6 @@ const resources = [
         <p class="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
           Your journey to financial freedom starts here. Discover tools, resources, and strategies to take control of your financial future.
         </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-          <a href="#resources" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 md:text-lg">
-            Explore Resources
-          </a>
-          <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-700 bg-primary-100 hover:bg-primary-200 md:text-lg">
-            Contact Us
-          </a>
-        </div>
-        
         <div class="mt-8 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <VideoPlayer videoId="qfmjVYUyOek" title="Money Mastery Resources Introduction" />
         </div>
@@ -101,14 +69,10 @@ const resources = [
     </div>
   </section>
 
-  <section class="py-12 sm:py-24 bg-white">
+  <section class="py-12 sm:py-24 bg-white" id="calculators">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8 sm:mb-12">Everything You Need</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-        {resources.map(resource => (
-          <ResourceCard {...resource} />
-        ))}
-      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8 sm:mb-12">Financial Calculators</h2>
+      <FinancialCalculators />
     </div>
   </section>
 </Layout>

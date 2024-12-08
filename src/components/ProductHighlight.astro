@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonLink: string;
+  imageUrl: string;
+}
+
+const { 
+  title, 
+  description, 
+  buttonText, 
+  buttonLink, 
+  imageUrl 
+} = Astro.props;
+---
+
+<div class="bg-gradient-to-r from-blue-50 to-indigo-100 rounded-xl shadow-lg overflow-hidden my-8 mx-4">
+  <div class="md:flex">
+    <div class="md:flex-shrink-0">
+      <img 
+        class="h-48 w-full object-cover md:w-48" 
+        src={imageUrl} 
+        alt={`${title} product image`}
+        loading="lazy"
+      />
+    </div>
+    <div class="p-6">
+      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{title}</div>
+      <p class="mt-2 text-gray-600">{description}</p>
+      <div class="mt-4">
+        <a 
+          href={buttonLink} 
+          class="block w-full bg-indigo-600 text-white py-2 px-4 rounded-md text-center hover:bg-indigo-700 transition duration-300"
+        >
+          {buttonText}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
