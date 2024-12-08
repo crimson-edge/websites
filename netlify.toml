@@ -1,6 +1,6 @@
 [build]
   base = "moneymasteryresources"
-  command = "npm run build"
+  command = "npx astro build"
   publish = "moneymasteryresources/dist"
 
 [[redirects]]
