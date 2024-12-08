@@ -1,7 +1,7 @@
 [build]
   base = "moneymasteryresources"
   command = "npm install && npm run build"
-  publish = "moneymasteryresources/dist"
+  publish = "dist"
 
 [[redirects]]
   from = "/*"
