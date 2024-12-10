@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 import ResourceCard from '../components/ResourceCard.astro';
 import VideoPlayer from '../components/VideoPlayer.astro';
+import BlogPost from '../components/BlogPost.astro';
 ---
 
 <Layout title="Home">
@@ -18,6 +19,29 @@ import VideoPlayer from '../components/VideoPlayer.astro';
         <a href="#resources" class="inline-block bg-primary text-white px-6 sm:px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors text-base sm:text-lg mb-12">
           Explore Resources
         </a>
+
+        <!-- Interactive Counters -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+          <div class="bg-white rounded-lg p-6 shadow-sm">
+            <div class="text-4xl font-bold text-primary mb-2">
+              <span class="counter" data-target="50000">0</span>+
+            </div>
+            <p class="text-gray-600">Active Members</p>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-sm">
+            <div class="text-4xl font-bold text-primary mb-2">
+              $<span class="counter" data-target="2000000">0</span>
+            </div>
+            <p class="text-gray-600">Total Member Savings</p>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-sm">
+            <div class="text-4xl font-bold text-primary mb-2">
+              <span class="counter" data-target="98">0</span>%
+            </div>
+            <p class="text-gray-600">Member Satisfaction</p>
+          </div>
+        </div>
+
         <div class="mt-8">
           <VideoPlayer videoId="Ij4ti3_sCco" title="Save Earn Share Introduction" />
         </div>
@@ -29,21 +53,27 @@ import VideoPlayer from '../components/VideoPlayer.astro';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-8 sm:mb-12 text-center">Essential Tools & Resources</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-        <FeatureCard
-          title="Coupon Database"
-          description="Search through our extensive database of digital and printable coupons."
-          icon="database"
-        />
-        <FeatureCard
-          title="Savings Calculator"
-          description="Plan your savings and calculate potential returns from stacking coupons."
-          icon="calculator"
-        />
-        <FeatureCard
-          title="Weekly Deals"
-          description="Stay updated with the best deals and offers from major retailers."
-          icon="tag"
-        />
+        <a href="/savings-calculator" class="block">
+          <FeatureCard
+            title="Savings Calculator"
+            description="Plan your savings and calculate potential returns from stacking coupons."
+            icon="calculator"
+          />
+        </a>
+        <a href="/couponing-calculator" class="block">
+          <FeatureCard
+            title="Coupon Calculator"
+            description="Calculate your total savings with our interactive coupon calculator."
+            icon="calculator"
+          />
+        </a>
+        <a href="/coupon-database" class="block">
+          <FeatureCard
+            title="Coupon Database"
+            description="Search through our extensive database of digital and printable coupons."
+            icon="database"
+          />
+        </a>
       </div>
     </div>
   </section>
@@ -53,21 +83,150 @@ import VideoPlayer from '../components/VideoPlayer.astro';
       <h2 class="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-8 sm:mb-12 text-center">Latest Resources</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         <ResourceCard
-          title="Beginner's Guide"
-          description="Learn the basics of extreme couponing and smart shopping strategies."
-          href="/blog/beginners-guide"
+          title="Advanced Coupon Combining Strategy Ebook"
+          description="Download our comprehensive guide to mastering advanced coupon stacking techniques."
+          href="/downloads/Advanced_Couponing_Tutorial_Final.pdf"
         />
         <ResourceCard
-          title="Store Policies"
-          description="Comprehensive guide to major retailers' coupon and price matching policies."
-          href="/blog/store-policies"
+          title="Store Reward Programs"
+          description="Learn how to maximize benefits from store loyalty programs and rewards cards."
+          href="/store-rewards-guide"
         />
         <ResourceCard
-          title="Digital Tools"
-          description="Essential apps and websites for maximizing your savings."
-          href="/blog/digital-tools"
+          title="Digital Couponing Guide"
+          description="Master the art of finding and using digital coupons from various online sources."
+          href="/digital-couponing-guide"
         />
       </div>
     </div>
   </section>
+  <!-- Testimonials Section -->
+  <section class="bg-white py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-display font-bold text-center text-gray-900 mb-12">
+        What Our Community Says
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Sarah's Testimonial -->
+        <div class="bg-gray-50 rounded-lg p-6 relative">
+          <div class="flex items-center mb-4">
+            <img 
+              src="/images/avatars/sarah.webp" 
+              alt="Sarah Johnson" 
+              class="w-12 h-12 rounded-full object-cover"
+            />
+            <div class="ml-4">
+              <h3 class="font-semibold text-gray-900">Sarah Johnson</h3>
+              <p class="text-sm text-gray-600">Savvy Shopper</p>
+            </div>
+          </div>
+          <p class="text-gray-700">
+            "I've saved over $2,000 this year using the strategies I learned here. 
+            The coupon calculator is a game-changer for maximizing savings!"
+          </p>
+          <div class="absolute -bottom-2 right-6 text-primary text-5xl opacity-10">
+            "
+          </div>
+        </div>
+
+        <!-- Michael's Testimonial -->
+        <div class="bg-gray-50 rounded-lg p-6 relative">
+          <div class="flex items-center mb-4">
+            <img 
+              src="/images/avatars/michael.webp" 
+              alt="Michael Chen" 
+              class="w-12 h-12 rounded-full object-cover"
+            />
+            <div class="ml-4">
+              <h3 class="font-semibold text-gray-900">Michael Chen</h3>
+              <p class="text-sm text-gray-600">Budget Expert</p>
+            </div>
+          </div>
+          <p class="text-gray-700">
+            "The store rewards guide helped me understand how to stack rewards with 
+            coupons. Now I never pay full price for groceries!"
+          </p>
+          <div class="absolute -bottom-2 right-6 text-primary text-5xl opacity-10">
+            "
+          </div>
+        </div>
+
+        <!-- Emily's Testimonial -->
+        <div class="bg-gray-50 rounded-lg p-6 relative">
+          <div class="flex items-center mb-4">
+            <img 
+              src="/images/avatars/emily.webp" 
+              alt="Emily Rodriguez" 
+              class="w-12 h-12 rounded-full object-cover"
+            />
+            <div class="ml-4">
+              <h3 class="font-semibold text-gray-900">Emily Rodriguez</h3>
+              <p class="text-sm text-gray-600">Digital Saver</p>
+            </div>
+          </div>
+          <p class="text-gray-700">
+            "The digital couponing guide opened my eyes to so many savings opportunities. 
+            I love how easy it is to save with my phone now!"
+          </p>
+          <div class="absolute -bottom-2 right-6 text-primary text-5xl opacity-10">
+            "
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Blog Section -->
+  <section class="bg-gray-50 py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-display font-bold text-center text-gray-900 mb-12">
+        Latest Blog Posts
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <BlogPost
+          title="10 Extreme Couponing Tips for Maximum Savings"
+          excerpt="Learn the secrets of extreme couponing and how to maximize your savings on every purchase."
+          image="/images/blog/extreme-couponing.webp"
+          date="December 9, 2024"
+          slug="extreme-couponing-tips"
+        />
+        <BlogPost
+          title="The Digital Savings Revolution"
+          excerpt="Discover how technology is transforming the way we save money and find the best deals."
+          image="/images/blog/digital-savings.webp"
+          date="December 9, 2024"
+          slug="digital-savings-revolution"
+        />
+        <BlogPost
+          title="Smart Holiday Shopping Strategies"
+          excerpt="Get ready for the holiday season with these smart shopping strategies to save big."
+          image="/images/blog/holiday-savings.webp"
+          date="December 9, 2024"
+          slug="holiday-shopping-strategies"
+        />
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      const increment = target / speed;
+
+      const updateCount = () => {
+        const count = +counter.innerText;
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 1);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+    });
+  </script>
 </Layout>

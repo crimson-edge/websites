@@ -23,8 +23,6 @@
           <li><a href="/" class="block text-2xl font-medium text-gray-900 hover:text-primary transition-colors">Home</a></li>
           <li><a href="/blog" class="block text-2xl font-medium text-gray-900 hover:text-primary transition-colors">Blog</a></li>
           <li><a href="/about" class="block text-2xl font-medium text-gray-900 hover:text-primary transition-colors">About</a></li>
-          <li><a href="#resources" class="block text-2xl font-medium text-gray-900 hover:text-primary transition-colors">Resources</a></li>
-          <li><a href="#tools" class="block text-2xl font-medium text-gray-900 hover:text-primary transition-colors">Tools</a></li>
         </ul>
       </nav>
     </div>
@@ -35,7 +33,6 @@
   const menuButton = document.getElementById('menuButton');
   const closeButton = document.getElementById('closeButton');
   const mobileMenu = document.getElementById('mobileMenu');
-  const mobileLinks = document.querySelectorAll('#mobileMenu a[href^="#"]');
 
   menuButton?.addEventListener('click', () => {
     mobileMenu?.classList.remove('hidden');
@@ -43,10 +40,6 @@
   });
 
   closeButton?.addEventListener('click', closeMenu);
-
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
 
   function closeMenu() {
     mobileMenu?.classList.add('hidden');
