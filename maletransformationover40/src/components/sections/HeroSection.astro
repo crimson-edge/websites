@@ -1,4 +1,6 @@
 ---
+const beforeImage = '/images/male-transformation-before.jpg';
+const afterImage = '/images/male-transformation-after.jpg';
 ---
 
 <section class="relative bg-gray-900 py-24 sm:py-32">
@@ -10,9 +12,10 @@
           <div class="relative rounded-lg overflow-hidden bg-white shadow-xl">
             <div class="aspect-w-3 aspect-h-4">
               <img 
-                src="/images/male-transformation-before.jpg" 
+                src={beforeImage}
                 alt="Before transformation" 
                 class="w-full h-full object-cover"
+                onerror="this.onerror=null; this.src='/placeholder.jpg';"
               />
             </div>
             <div class="absolute top-4 left-4">
@@ -22,9 +25,10 @@
           <div class="relative rounded-lg overflow-hidden bg-white shadow-xl">
             <div class="aspect-w-3 aspect-h-4">
               <img 
-                src="/images/male-transformation-after.jpg" 
+                src={afterImage}
                 alt="After transformation" 
                 class="w-full h-full object-cover"
+                onerror="this.onerror=null; this.src='/placeholder.jpg';"
               />
             </div>
             <div class="absolute top-4 left-4">
