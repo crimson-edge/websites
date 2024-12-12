@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const tools = [
+  {
+    title: "Body Composition Calculator",
+    description: "Calculate your body fat percentage, muscle mass index, and other key metrics.",
+    icon: "calculator",
+    link: "/tools/body-composition",
+    category: "Body Metrics"
+  },
+  {
+    title: "BMR Calculator",
+    description: "Calculate your Basal Metabolic Rate and daily caloric needs.",
+    icon: "fire",
+    link: "/tools/bmr-calculator",
+    category: "Nutrition"
+  },
+  {
+    title: "Nutrition Calculator",
+    description: "Get personalized macro distributions and meal timing recommendations.",
+    icon: "utensils",
+    link: "/tools/nutrition-calculator",
+    category: "Nutrition"
+  },
+  {
+    title: "Strength Standards",
+    description: "View realistic strength benchmarks based on your age and experience level.",
+    icon: "dumbbell",
+    link: "/tools/strength-standards",
+    category: "Performance"
+  },
+  {
+    title: "Training Calculator",
+    description: "Calculate optimal training volume, frequency, and intensity.",
+    icon: "heartbeat",
+    link: "/tools/training-calculator",
+    category: "Training"
+  }
+];
+
+const categories = [...new Set(tools.map(tool => tool.category))];
+---
+
+<Layout 
+  title="Fitness Tools & Calculators | Male Transformation Over 40"
+  description="Specialized fitness and nutrition calculators designed for men over 40. Get personalized recommendations for training, nutrition, and recovery."
+  keywords="fitness calculator, body composition, BMR calculator, strength standards, men over 40, training calculator"
+>
+  <main class="min-h-screen py-12 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Hero Section -->
+      <div class="text-center mb-16">
+        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          Fitness Tools & Calculators
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Science-based calculators and tools designed specifically for men over 40.
+          Get personalized recommendations for your fitness journey.
+        </p>
+      </div>
+
+      <!-- Tools Grid -->
+      {categories.map(category => (
+        <div class="mb-16">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 border-b border-gray-200 dark:border-gray-700 pb-2">
+            {category}
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {tools
+              .filter(tool => tool.category === category)
+              .map(tool => (
+                <a href={tool.link} 
+                   class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 p-6 flex flex-col">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                      <i class={`fas fa-${tool.icon} text-xl text-blue-600 dark:text-blue-400`}></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {tool.title}
+                    </h3>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 flex-grow">
+                    {tool.description}
+                  </p>
+                  <div class="mt-4 flex items-center text-blue-600 dark:text-blue-400">
+                    <span class="text-sm font-medium">Try Calculator</span>
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                  </div>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      ))}
+
+      <!-- Features Section -->
+      <div class="mt-20 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+          Why Our Tools Matter
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-lg">
+            <i class="fas fa-shield-alt text-3xl text-blue-600 dark:text-blue-400 mb-4"></i>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Age-Optimized</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              All calculations account for hormonal changes and recovery needs specific to men over 40.
+            </p>
+          </div>
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-lg">
+            <i class="fas fa-chart-line text-3xl text-blue-600 dark:text-blue-400 mb-4"></i>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Evidence-Based</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Built on scientific research and proven training methodologies for optimal results.
+            </p>
+          </div>
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-lg">
+            <i class="fas fa-user-shield text-3xl text-blue-600 dark:text-blue-400 mb-4"></i>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Safety-First</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Emphasizes joint health and sustainable progress to prevent injuries.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

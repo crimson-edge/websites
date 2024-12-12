@@ -1,0 +1,301 @@
+---
+import CalculatorLayout from './CalculatorLayout.astro';
+
+// SEO metadata
+const title = "Recovery Time Calculator for Men Over 40 | Male Transformation";
+const description = "Optimize your workout recovery with our specialized calculator designed for men over 40. Get personalized recommendations for rest periods, recovery strategies, and training frequency.";
+const keywords = "recovery calculator, workout recovery, men over 40, fitness recovery, training recovery, muscle recovery";
+---
+
+<CalculatorLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg shadow-sm">
+      <h1 class="text-xl sm:text-2xl font-bold text-blue-900 dark:text-blue-100 mb-2">Recovery Time Calculator</h1>
+      <p class="text-sm sm:text-base text-blue-800 dark:text-blue-200">Optimize your recovery time based on age, training intensity, and lifestyle factors.</p>
+    </div>
+
+    <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">Why Recovery Matters After 40</h3>
+      <ul class="text-blue-800 dark:text-blue-200 text-sm space-y-2">
+        <li>Hormonal changes affect recovery capacity</li>
+        <li>Muscle protein synthesis slows with age</li>
+        <li>Joint recovery becomes more important</li>
+        <li>Sleep quality has greater impact</li>
+      </ul>
+    </div>
+
+    <form id="recoveryForm" class="space-y-6" aria-label="Recovery calculator form">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <div class="col-span-1">
+          <label for="age" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Age
+          </label>
+          <div class="mt-1 relative rounded-md shadow-sm">
+            <input
+              type="number"
+              id="age"
+              name="age"
+              min="40"
+              max="90"
+              required
+              class="block w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+              aria-describedby="age-description"
+            />
+          </div>
+          <p class="mt-1 text-xs text-gray-500" id="age-description">Enter your current age (40-90)</p>
+        </div>
+
+        <div class="col-span-1">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Training Intensity (1-10)
+          </label>
+          <input
+            type="range"
+            min="1"
+            max="10"
+            value="7"
+            class="w-full"
+            id="intensity"
+          />
+          <div class="flex justify-between text-xs text-gray-500">
+            <span>Light</span>
+            <span>Maximum</span>
+          </div>
+        </div>
+
+        <div class="col-span-1">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Training Volume (sets per muscle group)
+          </label>
+          <input
+            type="range"
+            min="5"
+            max="30"
+            value="15"
+            class="w-full"
+            id="volume"
+          />
+          <div class="flex justify-between text-xs text-gray-500">
+            <span>Low (5)</span>
+            <span>High (30)</span>
+          </div>
+        </div>
+
+        <div class="col-span-1">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Sleep Quality (1-10)
+          </label>
+          <input
+            type="range"
+            min="1"
+            max="10"
+            value="7"
+            class="w-full"
+            id="sleep"
+          />
+          <div class="flex justify-between text-xs text-gray-500">
+            <span>Poor</span>
+            <span>Excellent</span>
+          </div>
+        </div>
+
+        <div class="col-span-1">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Stress Level (1-10)
+          </label>
+          <input
+            type="range"
+            min="1"
+            max="10"
+            value="5"
+            class="w-full"
+            id="stress"
+          />
+          <div class="flex justify-between text-xs text-gray-500">
+            <span>Low</span>
+            <span>High</span>
+          </div>
+        </div>
+
+        <div class="col-span-1">
+          <label for="muscleGroup" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Muscle Group Trained
+          </label>
+          <select
+            id="muscleGroup"
+            name="muscleGroup"
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+          >
+            <option value="large">Large (Back, Legs)</option>
+            <option value="medium">Medium (Chest, Shoulders)</option>
+            <option value="small">Small (Arms, Calves)</option>
+          </select>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-white font-medium rounded-md shadow-sm transition duration-150 ease-in-out"
+        aria-label="Calculate recovery needs"
+      >
+        Calculate Recovery Needs
+      </button>
+    </form>
+
+    <div slot="results" id="results" class="hidden space-y-6 mt-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Recommended Recovery Time</h3>
+          <div id="recoveryTime" class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2"></div>
+          <p id="recoveryInterpretation" class="text-gray-600 dark:text-gray-400"></p>
+        </div>
+
+        <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Recovery Quality Factors</h3>
+          <ul id="recoveryFactors" class="list-disc pl-4 text-gray-600 dark:text-gray-400 space-y-2"></ul>
+        </div>
+      </div>
+
+      <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recovery Optimization Plan</h3>
+        <div id="recoveryPlan" class="space-y-4"></div>
+      </div>
+
+      <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+        <h4 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">Active Recovery Suggestions</h4>
+        <div id="activeRecovery" class="text-blue-800 dark:text-blue-200 text-sm space-y-2"></div>
+      </div>
+    </div>
+  </div>
+</CalculatorLayout>
+
+<script>
+  import { calculateRecoveryNeeds } from '../../utils/exerciseUtils';
+
+  const form = document.getElementById('recoveryForm');
+  const resultsDiv = document.getElementById('results');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const age = parseInt((document.getElementById('age') as HTMLInputElement).value);
+    const intensity = parseInt((document.getElementById('intensity') as HTMLInputElement).value);
+    const volume = parseInt((document.getElementById('volume') as HTMLInputElement).value);
+    const sleep = parseInt((document.getElementById('sleep') as HTMLInputElement).value);
+    const stress = parseInt((document.getElementById('stress') as HTMLInputElement).value);
+    const muscleGroup = (document.getElementById('muscleGroup') as HTMLSelectElement).value;
+
+    const recovery = calculateRecoveryNeeds(age, intensity, volume, sleep, stress);
+    
+    updateResults(recovery, { age, intensity, volume, sleep, stress, muscleGroup });
+    resultsDiv?.classList.remove('hidden');
+  });
+
+  function updateResults(recovery: any, factors: any) {
+    // Update recovery time
+    const timeDiv = document.getElementById('recoveryTime')!;
+    timeDiv.textContent = `${recovery.recoveryDays} days`;
+
+    // Update interpretation
+    const interpretationDiv = document.getElementById('recoveryInterpretation')!;
+    interpretationDiv.textContent = getRecoveryInterpretation(recovery.recoveryDays, factors.muscleGroup);
+
+    // Update recovery factors
+    const factorsDiv = document.getElementById('recoveryFactors')!;
+    factorsDiv.innerHTML = generateRecoveryFactors(factors);
+
+    // Update recovery plan
+    const planDiv = document.getElementById('recoveryPlan')!;
+    planDiv.innerHTML = generateRecoveryPlan(recovery, factors);
+
+    // Update active recovery suggestions
+    const activeRecoveryDiv = document.getElementById('activeRecovery')!;
+    activeRecoveryDiv.innerHTML = generateActiveRecovery(factors);
+  }
+
+  function getRecoveryInterpretation(days: number, muscleGroup: string): string {
+    const baseMessage = `Optimal recovery time: ${days} days. `;
+    
+    if (muscleGroup === 'large') {
+      return baseMessage + "Large muscle groups typically require more recovery time.";
+    } else if (muscleGroup === 'medium') {
+      return baseMessage + "Medium muscle groups have moderate recovery needs.";
+    }
+    return baseMessage + "Smaller muscle groups generally recover faster.";
+  }
+
+  function generateRecoveryFactors(factors: any): string {
+    let html = '';
+    
+    if (factors.age > 50) {
+      html += '<li>Age factor: Increased recovery needs</li>';
+    }
+    if (factors.intensity > 7) {
+      html += '<li>High intensity: Extended recovery required</li>';
+    }
+    if (factors.sleep < 7) {
+      html += '<li>Sleep quality: May impact recovery time</li>';
+    }
+    if (factors.stress > 7) {
+      html += '<li>High stress: Consider additional recovery</li>';
+    }
+
+    return html;
+  }
+
+  function generateRecoveryPlan(recovery: any, factors: any): string {
+    return `
+      <div class="space-y-4">
+        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Daily Recovery Protocol</h4>
+          <ul class="list-disc pl-4 text-sm text-gray-600 dark:text-gray-400">
+            <li>Proper post-workout nutrition within 30 minutes</li>
+            <li>Adequate protein intake (1g per pound of bodyweight)</li>
+            <li>Hydration (minimum 8-10 glasses of water)</li>
+            <li>${factors.sleep < 7 ? 'Prioritize sleep improvement' : 'Maintain good sleep habits'}</li>
+          </ul>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Recovery Techniques</h4>
+          <ul class="list-disc pl-4 text-sm text-gray-600 dark:text-gray-400">
+            <li>Light stretching or yoga</li>
+            <li>Foam rolling or massage</li>
+            <li>Walking or light cardio</li>
+            <li>Contrast showers or ice baths</li>
+          </ul>
+        </div>
+      </div>
+    `;
+  }
+
+  function generateActiveRecovery(factors: any): string {
+    let activities = '<ul class="list-disc pl-4">';
+    
+    if (factors.intensity > 7 || factors.volume > 20) {
+      activities += `
+        <li>Light cardio (20-30 minutes)</li>
+        <li>Mobility work</li>
+        <li>Swimming or water exercises</li>
+      `;
+    } else {
+      activities += `
+        <li>Brisk walking</li>
+        <li>Light resistance training</li>
+        <li>Dynamic stretching</li>
+      `;
+    }
+
+    activities += `
+      <li>Yoga or gentle stretching</li>
+      <li>Light recreational activities</li>
+    </ul>`;
+
+    return activities;
+  }
+</script>

@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BodyCompositionCalculator from '../../components/calculators/BodyCompositionCalculator.astro';
+
+const title = "Body Composition Calculator for Men Over 40 | Male Transformation";
+const description = "Calculate your body fat percentage, muscle mass index, and other key metrics with our specialized calculator designed for men over 40.";
+const keywords = "body composition calculator, body fat calculator, muscle mass index, men over 40, fitness calculator";
+---
+
+<Layout title={title} description={description} keywords={keywords}>
+  <main class="min-h-screen py-12 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+          <li><a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a></li>
+          <li><span class="mx-2">/</span></li>
+          <li><a href="/tools" class="hover:text-blue-600 dark:hover:text-blue-400">Tools</a></li>
+          <li><span class="mx-2">/</span></li>
+          <li class="text-gray-900 dark:text-white">Body Composition Calculator</li>
+        </ol>
+      </nav>
+
+      <!-- Info Section -->
+      <div class="mb-12 max-w-3xl">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Body Composition Calculator
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300">
+          Get accurate insights into your body composition metrics, specifically calibrated for men over 40.
+          Our calculator provides detailed analysis of your body fat percentage, muscle mass index, and other key metrics.
+        </p>
+      </div>
+
+      <!-- Calculator -->
+      <BodyCompositionCalculator />
+
+      <!-- Additional Information -->
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            Understanding Your Results
+          </h2>
+          <div class="prose dark:prose-invert">
+            <p>Your body composition results provide valuable insights into your overall fitness and health status:</p>
+            <ul>
+              <li><strong>Body Fat Percentage:</strong> Indicates the proportion of fat mass to total body mass.</li>
+              <li><strong>Muscle Mass Index (MMI):</strong> Measures your relative muscle mass accounting for height.</li>
+              <li><strong>Waist-to-Hip Ratio:</strong> An indicator of fat distribution and metabolic health risk.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            Tips for Accuracy
+          </h2>
+          <div class="prose dark:prose-invert">
+            <ul>
+              <li>Measure first thing in the morning before eating or drinking</li>
+              <li>Use a flexible tape measure and keep it parallel to the floor</li>
+              <li>Take measurements without clothing that could affect accuracy</li>
+              <li>For waist measurement, measure at the narrowest point</li>
+              <li>For hip measurement, measure at the widest point</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Steps -->
+      <div class="mt-12 bg-blue-50 dark:bg-blue-900 rounded-lg p-8">
+        <h2 class="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-4">
+          Next Steps
+        </h2>
+        <p class="text-blue-800 dark:text-blue-200 mb-6">
+          After calculating your body composition, use our other tools to create a comprehensive fitness plan:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <a href="/tools/bmr-calculator" 
+             class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+            <h3 class="font-semibold text-gray-900 dark:text-white">BMR Calculator</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Calculate your daily caloric needs</p>
+          </a>
+          <a href="/tools/nutrition-calculator" 
+             class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+            <h3 class="font-semibold text-gray-900 dark:text-white">Nutrition Calculator</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Get personalized macro recommendations</p>
+          </a>
+          <a href="/tools/training-calculator" 
+             class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-md transition-shadow">
+            <h3 class="font-semibold text-gray-900 dark:text-white">Training Calculator</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Optimize your training volume</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,242 @@
+---
+import CalculatorLayout from './CalculatorLayout.astro';
+---
+
+<CalculatorLayout
+  title="Exercise Selection Matrix"
+  description="Get personalized exercise recommendations based on your joint health, mobility, and experience level."
+>
+  <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+    <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">How to Use This Tool</h3>
+    <ul class="text-blue-800 dark:text-blue-200 text-sm space-y-2">
+      <li>1. Rate your joint health for different body parts</li>
+      <li>2. Select your target muscle group</li>
+      <li>3. Indicate your experience level</li>
+      <li>4. Review personalized exercise recommendations</li>
+    </ul>
+  </div>
+
+  <form id="exerciseForm" class="space-y-6">
+    <div class="border-b border-gray-200 dark:border-gray-700 pb-6">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Joint Health Assessment</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Shoulder Health (1-10)
+          </label>
+          <input
+            type="range"
+            min="1"
+            max="10"
+            value="7"
+            class="w-full"
+            id="shoulderHealth"
+          />
+          <div class="flex justify-between text-xs text-gray-500">
+            <span>Limited</span>
+            <span>Excellent</span>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Hip/Knee Health (1-10)
+          </label>
+          <input
+            type="range"
+            min="1"
+            max="10"
+            value="7"
+            class="w-full"
+            id="hipHealth"
+          />
+          <div class="flex justify-between text-xs text-gray-500">
+            <span>Limited</span>
+            <span>Excellent</span>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Lower Back Health (1-10)
+          </label>
+          <input
+            type="range"
+            min="1"
+            max="10"
+            value="7"
+            class="w-full"
+            id="backHealth"
+          />
+          <div class="flex justify-between text-xs text-gray-500">
+            <span>Limited</span>
+            <span>Excellent</span>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Ankle/Foot Health (1-10)
+          </label>
+          <input
+            type="range"
+            min="1"
+            max="10"
+            value="7"
+            class="w-full"
+            id="ankleHealth"
+          />
+          <div class="flex justify-between text-xs text-gray-500">
+            <span>Limited</span>
+            <span>Excellent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label for="targetMuscle" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Target Muscle Group
+        </label>
+        <select
+          id="targetMuscle"
+          name="targetMuscle"
+          required
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+        >
+          <option value="chest">Chest</option>
+          <option value="back">Back</option>
+          <option value="legs">Legs</option>
+          <option value="shoulders">Shoulders</option>
+          <option value="arms">Arms</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="experience" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Experience Level
+        </label>
+        <select
+          id="experience"
+          name="experience"
+          required
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+        >
+          <option value="beginner">Beginner (0-1 years)</option>
+          <option value="intermediate">Intermediate (1-3 years)</option>
+          <option value="advanced">Advanced (3+ years)</option>
+        </select>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-150 ease-in-out"
+    >
+      Get Exercise Recommendations
+    </button>
+  </form>
+
+  <div slot="results" id="results" class="hidden space-y-6">
+    <div class="grid grid-cols-1 gap-6">
+      <div id="recommendedExercises" class="space-y-4"></div>
+    </div>
+
+    <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+      <h4 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">Training Guidelines</h4>
+      <div id="guidelines" class="text-blue-800 dark:text-blue-200 text-sm space-y-2"></div>
+    </div>
+  </div>
+</CalculatorLayout>
+
+<script>
+  import { getExerciseRecommendations } from '../../utils/exerciseUtils';
+
+  const form = document.getElementById('exerciseForm');
+  const resultsDiv = document.getElementById('results');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const shoulderHealth = parseInt((document.getElementById('shoulderHealth') as HTMLInputElement).value);
+    const hipHealth = parseInt((document.getElementById('hipHealth') as HTMLInputElement).value);
+    const backHealth = parseInt((document.getElementById('backHealth') as HTMLInputElement).value);
+    const ankleHealth = parseInt((document.getElementById('ankleHealth') as HTMLInputElement).value);
+    
+    const targetMuscle = (document.getElementById('targetMuscle') as HTMLSelectElement).value;
+    const experience = (document.getElementById('experience') as HTMLSelectElement).value;
+
+    const jointStatus = {
+      mobility: (shoulderHealth + hipHealth + backHealth + ankleHealth) / 4,
+      pain: 10 - Math.min(shoulderHealth, hipHealth, backHealth, ankleHealth),
+      strength: experience === 'beginner' ? 5 : experience === 'intermediate' ? 7 : 9
+    };
+
+    const recommendations = getExerciseRecommendations(targetMuscle, jointStatus, experience);
+    
+    updateResults(recommendations, jointStatus);
+    resultsDiv?.classList.remove('hidden');
+  });
+
+  function updateResults(recommendations: any[], jointStatus: any) {
+    const recommendedExercisesDiv = document.getElementById('recommendedExercises')!;
+    const guidelinesDiv = document.getElementById('guidelines')!;
+
+    // Update exercise recommendations
+    recommendedExercisesDiv.innerHTML = recommendations.map(exercise => `
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">${exercise.name}</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-2">${exercise.description}</p>
+        <div class="space-y-2">
+          <div>
+            <h4 class="font-medium text-gray-700 dark:text-gray-300">Benefits:</h4>
+            <ul class="list-disc pl-5 text-sm text-gray-600 dark:text-gray-400">
+              ${exercise.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
+            </ul>
+          </div>
+          ${exercise.precautions ? `
+            <div>
+              <h4 class="font-medium text-gray-700 dark:text-gray-300">Precautions:</h4>
+              <ul class="list-disc pl-5 text-sm text-gray-600 dark:text-gray-400">
+                ${exercise.precautions.map(precaution => `<li>${precaution}</li>`).join('')}
+              </ul>
+            </div>
+          ` : ''}
+        </div>
+      </div>
+    `).join('');
+
+    // Update training guidelines
+    guidelinesDiv.innerHTML = generateGuidelines(jointStatus);
+  }
+
+  function generateGuidelines(jointStatus: any): string {
+    let guidelines = '<ul class="list-disc pl-4">';
+
+    if (jointStatus.pain > 5) {
+      guidelines += `
+        <li>Focus on proper warm-up and mobility work</li>
+        <li>Use higher rep ranges (12-15) to reduce joint stress</li>
+        <li>Consider incorporating deload weeks more frequently</li>
+      `;
+    }
+
+    if (jointStatus.mobility < 7) {
+      guidelines += `
+        <li>Include specific mobility work before each session</li>
+        <li>Consider working with reduced range of motion initially</li>
+        <li>Gradually increase movement range as mobility improves</li>
+      `;
+    }
+
+    guidelines += `
+      <li>Start with 2-3 sets per exercise</li>
+      <li>Rest 1-2 minutes between sets</li>
+      <li>Focus on proper form over weight</li>
+    `;
+
+    guidelines += '</ul>';
+    return guidelines;
+  }
+</script>

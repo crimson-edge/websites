@@ -1,0 +1,108 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ProgressiveOverloadCalculator from '../../components/calculators/ProgressiveOverloadCalculator.astro';
+---
+
+<ToolLayout
+  title="Progressive Overload Calculator"
+  description="Calculate optimal weight progression and training volume increases for sustained progress. Specifically designed for men over 40."
+>
+  <div class="prose dark:prose-invert max-w-none mb-8">
+    <h2>Smart Progression After 40</h2>
+    <p>
+      Progressive overload remains essential for building strength and muscle after 40, but it needs to be approached
+      differently. This calculator helps you plan sustainable progress while accounting for recovery capacity and joint health.
+    </p>
+    
+    <div class="my-6">
+      <h3>Key Progression Factors</h3>
+      <ul>
+        <li><strong>Recovery Capacity:</strong> Affects how quickly you can increase load</li>
+        <li><strong>Joint Health:</strong> Influences progression strategy</li>
+        <li><strong>Training History:</strong> Determines realistic progression rates</li>
+        <li><strong>Exercise Type:</strong> Different progressions for different movements</li>
+      </ul>
+    </div>
+  </div>
+
+  <ProgressiveOverloadCalculator />
+
+  <div class="prose dark:prose-invert max-w-none mt-8">
+    <div class="my-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+      <h3 class="mt-0">Understanding Your Results</h3>
+      
+      <h4>Weekly Progression Guidelines</h4>
+      <ul>
+        <li><strong>Weight Increases:</strong> Smaller, more frequent jumps for sustainability</li>
+        <li><strong>Volume Changes:</strong> Gradual increases in sets and reps</li>
+        <li><strong>Deload Timing:</strong> Strategic recovery periods</li>
+        <li><strong>Exercise Rotation:</strong> When to modify exercise selection</li>
+      </ul>
+
+      <h4>Important Considerations</h4>
+      <ul>
+        <li>Progress should feel challenging but manageable</li>
+        <li>Form must be maintained with increased loads</li>
+        <li>Recovery between sessions is crucial</li>
+        <li>Adjust progression based on energy levels</li>
+      </ul>
+    </div>
+
+    <h2>Implementing Progressive Overload</h2>
+
+    <h3>Methods of Progression</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Primary Methods</h4>
+        <ul>
+          <li>Increase weight</li>
+          <li>Add repetitions</li>
+          <li>Add sets</li>
+          <li>Decrease rest periods</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Advanced Techniques</h4>
+        <ul>
+          <li>Tempo manipulation</li>
+          <li>Range of motion increases</li>
+          <li>Movement complexity</li>
+          <li>Density improvements</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Exercise-Specific Guidelines</h3>
+    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+      <h4 class="text-lg font-semibold mb-2">Compound Lifts</h4>
+      <ul>
+        <li>Smaller weight jumps (2.5-5 lbs)</li>
+        <li>Focus on quality reps</li>
+        <li>Longer rest periods allowed</li>
+        <li>Regular deload weeks</li>
+      </ul>
+    </div>
+
+    <div class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg mt-6">
+      <h3 class="text-blue-900 dark:text-blue-100 mt-0">Progress Monitoring Tips</h3>
+      <ul class="text-blue-800 dark:text-blue-200">
+        <li>Keep detailed training logs</li>
+        <li>Track both weight and reps</li>
+        <li>Note exercise quality</li>
+        <li>Monitor recovery between sessions</li>
+        <li>Record energy levels</li>
+      </ul>
+    </div>
+
+    <div class="mt-6">
+      <h3>When to Adjust Your Progression</h3>
+      <ul>
+        <li>Form deteriorates with increased load</li>
+        <li>Recovery becomes insufficient</li>
+        <li>Joint discomfort develops</li>
+        <li>Plateau persists beyond 2-3 weeks</li>
+        <li>Energy levels consistently decrease</li>
+      </ul>
+    </div>
+  </div>
+</ToolLayout>

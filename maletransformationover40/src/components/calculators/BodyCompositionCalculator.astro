@@ -1,0 +1,187 @@
+---
+import CalculatorLayout from './CalculatorLayout.astro';
+
+const title = "Body Composition Calculator for Men Over 40";
+const description = "Calculate your body fat percentage, muscle mass index, and other key metrics with our specialized calculator for men over 40.";
+const keywords = "body composition calculator, body fat calculator, muscle mass index, men over 40, fitness calculator";
+---
+
+<CalculatorLayout title={title} description={description} keywords={keywords}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg shadow-lg p-8 mb-8 text-white">
+      <h1 class="text-3xl font-bold mb-4">Body Composition Calculator</h1>
+      <p class="text-lg opacity-90">Get accurate insights into your body composition metrics, tailored for men over 40.</p>
+    </div>
+
+    <form id="bodyCompositionForm" class="space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Basic Measurements -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+          <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Basic Measurements</h3>
+          <div class="space-y-4">
+            <div>
+              <label for="age" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Age</label>
+              <input type="number" id="age" name="age" min="40" max="100" required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              />
+            </div>
+            <div>
+              <label for="weight" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Weight (lbs)</label>
+              <input type="number" id="weight" name="weight" min="80" max="400" required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              />
+            </div>
+            <div>
+              <label for="height" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Height (inches)</label>
+              <input type="number" id="height" name="height" min="48" max="84" required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Circumference Measurements -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+          <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Circumference Measurements</h3>
+          <div class="space-y-4">
+            <div>
+              <label for="waist" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Waist (inches)</label>
+              <input type="number" id="waist" name="waist" min="20" max="60" required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              />
+            </div>
+            <div>
+              <label for="hip" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Hip (inches)</label>
+              <input type="number" id="hip" name="hip" min="20" max="60" required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              />
+            </div>
+            <div>
+              <label for="neck" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Neck (inches)</label>
+              <input type="number" id="neck" name="neck" min="10" max="25" required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-200 flex items-center justify-center space-x-2"
+      >
+        <span>Calculate Body Composition</span>
+        <i class="fas fa-calculator"></i>
+      </button>
+    </form>
+
+    <div id="results" class="hidden mt-8 space-y-6">
+      <!-- Results Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Body Fat Percentage</h3>
+          <div id="bodyFatResult" class="text-3xl font-bold text-blue-600 dark:text-blue-400"></div>
+          <p id="bodyFatCategory" class="text-sm text-gray-600 dark:text-gray-400 mt-2"></p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Muscle Mass Index</h3>
+          <div id="mmiResult" class="text-3xl font-bold text-blue-600 dark:text-blue-400"></div>
+          <p id="mmiCategory" class="text-sm text-gray-600 dark:text-gray-400 mt-2"></p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Waist-to-Hip Ratio</h3>
+          <div id="whrResult" class="text-3xl font-bold text-blue-600 dark:text-blue-400"></div>
+          <p id="whrCategory" class="text-sm text-gray-600 dark:text-gray-400 mt-2"></p>
+        </div>
+      </div>
+
+      <!-- Detailed Analysis -->
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mt-6">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Analysis & Recommendations</h3>
+        <div id="analysis" class="prose dark:prose-invert max-w-none"></div>
+      </div>
+
+      <!-- Action Steps -->
+      <div class="bg-blue-50 dark:bg-blue-900 rounded-lg p-6 mt-6">
+        <h3 class="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">Next Steps</h3>
+        <div id="recommendations" class="space-y-4"></div>
+      </div>
+    </div>
+  </div>
+</CalculatorLayout>
+
+<script>
+  import { calculateBodyComposition } from '../../utils/bodyComposition';
+
+  const form = document.getElementById('bodyCompositionForm');
+  const resultsDiv = document.getElementById('results');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const age = parseInt((document.getElementById('age') as HTMLInputElement).value);
+    const weight = parseFloat((document.getElementById('weight') as HTMLInputElement).value);
+    const height = parseFloat((document.getElementById('height') as HTMLInputElement).value);
+    const waist = parseFloat((document.getElementById('waist') as HTMLInputElement).value);
+    const hip = parseFloat((document.getElementById('hip') as HTMLInputElement).value);
+    const neck = parseFloat((document.getElementById('neck') as HTMLInputElement).value);
+
+    const results = calculateBodyComposition({
+      age,
+      weight,
+      height,
+      waist,
+      hip,
+      neck
+    });
+
+    updateResults(results);
+    resultsDiv?.classList.remove('hidden');
+    resultsDiv?.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  function updateResults(results: any) {
+    // Update Body Fat
+    const bodyFatDiv = document.getElementById('bodyFatResult')!;
+    const bodyFatCategoryDiv = document.getElementById('bodyFatCategory')!;
+    bodyFatDiv.textContent = `${results.bodyFatPercentage.toFixed(1)}%`;
+    bodyFatCategoryDiv.textContent = `Category: ${results.bodyFatCategory}`;
+
+    // Update MMI
+    const mmiDiv = document.getElementById('mmiResult')!;
+    const mmiCategoryDiv = document.getElementById('mmiCategory')!;
+    mmiDiv.textContent = results.mmi.toFixed(1);
+    mmiCategoryDiv.textContent = `Category: ${results.mmiCategory}`;
+
+    // Update WHR
+    const whrDiv = document.getElementById('whrResult')!;
+    const whrCategoryDiv = document.getElementById('whrCategory')!;
+    whrDiv.textContent = results.whr.toFixed(2);
+    whrCategoryDiv.textContent = `Category: ${results.whrCategory}`;
+
+    // Update Analysis
+    const analysisDiv = document.getElementById('analysis')!;
+    analysisDiv.innerHTML = `
+      <div class="space-y-4">
+        <p>${results.analysis}</p>
+        <ul class="list-disc pl-5 space-y-2">
+          ${results.details.map((detail: string) => `<li>${detail}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+
+    // Update Recommendations
+    const recommendationsDiv = document.getElementById('recommendations')!;
+    recommendationsDiv.innerHTML = `
+      <ul class="space-y-3">
+        ${results.recommendations.map((rec: string) => `
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-blue-600 dark:text-blue-400 mt-1 mr-2"></i>
+            <span class="text-gray-800 dark:text-gray-200">${rec}</span>
+          </li>
+        `).join('')}
+      </ul>
+    `;
+  }
+</script>

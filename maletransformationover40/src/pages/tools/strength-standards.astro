@@ -1,0 +1,125 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import StrengthStandardsCalculator from '../../components/calculators/StrengthStandardsCalculator.astro';
+---
+
+<ToolLayout
+  title="Strength Standards Calculator"
+  description="Calculate realistic strength standards and goals based on your age and experience level. Specifically designed for men over 40 to ensure safe and effective progress."
+>
+  <div class="prose dark:prose-invert max-w-none mb-8">
+    <h2>Understanding Strength Standards After 40</h2>
+    <p>
+      Strength standards for men over 40 need to be viewed differently than those for younger lifters. While building and 
+      maintaining strength is absolutely achievable, factors like recovery capacity, joint health, and hormonal changes 
+      need to be considered.
+    </p>
+    
+    <div class="my-6">
+      <h3>Key Factors Influencing Strength After 40</h3>
+      <ul>
+        <li><strong>Recovery Capacity:</strong> Generally requires more time between heavy training sessions</li>
+        <li><strong>Joint Health:</strong> May require modifications to standard lifting techniques</li>
+        <li><strong>Hormonal Changes:</strong> Can affect strength gains and recovery</li>
+        <li><strong>Training History:</strong> Previous experience greatly influences potential</li>
+      </ul>
+    </div>
+  </div>
+
+  <StrengthStandardsCalculator />
+
+  <div class="prose dark:prose-invert max-w-none mt-8">
+    <div class="my-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+      <h3 class="mt-0">How to Use These Standards</h3>
+      
+      <h4>Interpreting Your Results</h4>
+      <ul>
+        <li><strong>Beginner:</strong> Achievable within first year of consistent training</li>
+        <li><strong>Intermediate:</strong> Typically requires 1-3 years of focused training</li>
+        <li><strong>Advanced:</strong> Representative of several years of dedicated training</li>
+      </ul>
+
+      <h4>Important Considerations</h4>
+      <ul>
+        <li>Standards are adjusted for age-related factors</li>
+        <li>Focus on steady, sustainable progress</li>
+        <li>Form and safety should always come first</li>
+        <li>Individual results may vary based on numerous factors</li>
+      </ul>
+    </div>
+
+    <h2>Training Guidelines for Strength Development</h2>
+
+    <h3>Exercise Selection Principles</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Compound Movements</h4>
+        <ul>
+          <li>Bench Press variations</li>
+          <li>Squat variations</li>
+          <li>Deadlift variations</li>
+          <li>Overhead Press</li>
+          <li>Row variations</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Joint-Friendly Alternatives</h4>
+        <ul>
+          <li>Floor Press (shoulder-friendly)</li>
+          <li>Box Squats (knee-friendly)</li>
+          <li>Trap Bar Deadlift (lower back-friendly)</li>
+          <li>Landmine Press (shoulder-friendly)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Programming Guidelines</h3>
+    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+      <h4 class="text-lg font-semibold mb-2">Sample Training Split</h4>
+      <ul>
+        <li>Day 1: Upper Body Push (Bench Focus)</li>
+        <li>Day 2: Lower Body (Squat Focus)</li>
+        <li>Day 3: Rest/Recovery</li>
+        <li>Day 4: Upper Body Pull</li>
+        <li>Day 5: Lower Body (Deadlift Focus)</li>
+        <li>Day 6-7: Rest/Recovery</li>
+      </ul>
+    </div>
+
+    <h3>Volume and Intensity Guidelines</h3>
+    <ul>
+      <li><strong>Main Lifts:</strong> 3-5 sets of 3-8 reps</li>
+      <li><strong>Accessory Work:</strong> 2-3 sets of 8-15 reps</li>
+      <li><strong>Weekly Frequency:</strong> 1-2 times per lift</li>
+      <li><strong>Intensity:</strong> 65-85% of 1RM for main work</li>
+    </ul>
+
+    <div class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg mt-6">
+      <h3 class="text-blue-900 dark:text-blue-100 mt-0">Progress Tracking Tips</h3>
+      <ul class="text-blue-800 dark:text-blue-200">
+        <li>Keep a detailed training log</li>
+        <li>Track both weight and reps</li>
+        <li>Note joint comfort and recovery quality</li>
+        <li>Adjust volume based on recovery</li>
+        <li>Progress in small increments (2.5-5 lbs)</li>
+      </ul>
+    </div>
+
+    <div class="mt-6">
+      <h3>Recovery and Injury Prevention</h3>
+      <ul>
+        <li><strong>Warm-up:</strong> Spend extra time on mobility and activation</li>
+        <li><strong>Form:</strong> Regular video analysis of main lifts</li>
+        <li><strong>Deload:</strong> Every 4-6 weeks based on fatigue</li>
+        <li><strong>Recovery Methods:</strong>
+          <ul>
+            <li>Adequate sleep (7-9 hours)</li>
+            <li>Proper nutrition</li>
+            <li>Stress management</li>
+            <li>Active recovery (walking, swimming)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ToolLayout>

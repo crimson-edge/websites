@@ -1,0 +1,168 @@
+---
+---
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg shadow-lg p-8 mb-8 text-white">
+    <h1 class="text-3xl font-bold mb-4">BMR Calculator</h1>
+    <p class="text-lg opacity-90">Calculate your daily calorie needs based on your age, weight, height, and activity level.</p>
+  </div>
+
+  <form id="bmrForm" class="space-y-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Basic Measurements -->
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Basic Information</h3>
+        <div class="space-y-4">
+          <div>
+            <label for="age" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Age</label>
+            <input type="number" id="age" name="age" min="40" max="120" required
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            />
+          </div>
+          <div>
+            <label for="weight" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Weight (lbs)</label>
+            <input type="number" id="weight" name="weight" min="80" max="500" required
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            />
+          </div>
+          <div>
+            <label for="height" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Height (inches)</label>
+            <input type="number" id="height" name="height" min="48" max="96" required
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity Level -->
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Activity Level</h3>
+        <div class="space-y-4">
+          <div>
+            <label for="activity" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Select Your Activity Level</label>
+            <select id="activity" name="activity" required
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            >
+              <option value="1.2">Sedentary (office job, little exercise)</option>
+              <option value="1.375">Light Exercise (1-3 days/week)</option>
+              <option value="1.55">Moderate Exercise (3-5 days/week)</option>
+              <option value="1.725">Heavy Exercise (6-7 days/week)</option>
+              <option value="1.9">Athlete (2x training/day)</option>
+            </select>
+            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+              Choose the option that best matches your typical weekly activity level
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-200 flex items-center justify-center space-x-2"
+    >
+      <span>Calculate BMR</span>
+      <i class="fas fa-calculator"></i>
+    </button>
+  </form>
+
+  <div id="results" class="hidden mt-8 space-y-6">
+    <!-- Results Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Base BMR</h3>
+        <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">
+          <span id="baseBMR"></span> calories/day
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+          This is the number of calories your body burns at complete rest
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Daily Calorie Needs</h3>
+        <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">
+          <span id="tdee"></span> calories/day
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
+          Total daily energy expenditure based on your activity level
+        </p>
+      </div>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Personalized Recommendations</h3>
+      <ul id="recommendations" class="space-y-3">
+        <!-- Recommendations will be inserted here -->
+      </ul>
+    </div>
+
+    <!-- Goal-based Adjustments -->
+    <div class="bg-blue-50 dark:bg-blue-900 rounded-lg p-6">
+      <h3 class="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">Goal-based Adjustments</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Fat Loss</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Reduce daily calories by 300-500 to lose 0.5-1 lb per week
+          </p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Maintenance</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Eat at your TDEE to maintain current weight
+          </p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg">
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Muscle Gain</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Add 200-300 daily calories for lean muscle growth
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { calculateBMR } from '../../utils/bmrCalculator';
+
+  const form = document.getElementById('bmrForm');
+  const resultsDiv = document.getElementById('results');
+  const baseBMRSpan = document.getElementById('baseBMR');
+  const tdeeSpan = document.getElementById('tdee');
+  const recommendationsUl = document.getElementById('recommendations');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const age = parseFloat((document.getElementById('age') as HTMLInputElement).value);
+    const weight = parseFloat((document.getElementById('weight') as HTMLInputElement).value);
+    const height = parseFloat((document.getElementById('height') as HTMLInputElement).value);
+    const activityLevel = parseFloat((document.getElementById('activity') as HTMLSelectElement).value);
+    
+    const results = calculateBMR({
+      age,
+      weight,
+      height,
+      activityLevel
+    });
+    
+    // Update results
+    baseBMRSpan!.textContent = results.baseBMR.toString();
+    tdeeSpan!.textContent = results.tdee.toString();
+    
+    // Update recommendations
+    recommendationsUl!.innerHTML = results.recommendations
+      .map(rec => `
+        <li class="flex items-start">
+          <i class="fas fa-check-circle text-blue-600 dark:text-blue-400 mt-1 mr-2"></i>
+          <span class="text-gray-800 dark:text-gray-200">${rec}</span>
+        </li>
+      `)
+      .join('');
+    
+    resultsDiv?.classList.remove('hidden');
+    resultsDiv?.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>

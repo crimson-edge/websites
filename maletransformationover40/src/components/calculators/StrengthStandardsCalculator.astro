@@ -1,0 +1,295 @@
+---
+import CalculatorLayout from './CalculatorLayout.astro';
+---
+
+<CalculatorLayout
+  title="Strength Standards Calculator"
+  description="Calculate realistic strength standards for key exercises based on your age, weight, and experience level. Designed specifically for men over 40."
+>
+  <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+    <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">How to Use This Calculator</h3>
+    <ul class="text-blue-800 dark:text-blue-200 text-sm space-y-2">
+      <li>1. Enter your age and current weight</li>
+      <li>2. Select your training experience level</li>
+      <li>3. Input your current lifts (optional)</li>
+      <li>4. View personalized strength standards and goals</li>
+    </ul>
+  </div>
+
+  <form id="strengthForm" class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label for="age" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Age
+        </label>
+        <input
+          type="number"
+          id="age"
+          name="age"
+          min="40"
+          max="90"
+          required
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+        />
+      </div>
+
+      <div>
+        <label for="weight" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Body Weight (lbs)
+        </label>
+        <input
+          type="number"
+          id="weight"
+          name="weight"
+          min="100"
+          max="400"
+          required
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+        />
+      </div>
+
+      <div>
+        <label for="experience" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Training Experience
+        </label>
+        <select
+          id="experience"
+          name="experience"
+          required
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+        >
+          <option value="beginner">Beginner (0-1 years)</option>
+          <option value="intermediate">Intermediate (1-3 years)</option>
+          <option value="advanced">Advanced (3+ years)</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="joint_health" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Joint Health
+        </label>
+        <select
+          id="joint_health"
+          name="joint_health"
+          required
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+        >
+          <option value="excellent">Excellent - No joint issues</option>
+          <option value="good">Good - Minor occasional discomfort</option>
+          <option value="fair">Fair - Some limitations</option>
+          <option value="poor">Poor - Significant limitations</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Current Lifts (Optional)</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <label for="bench_press" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Bench Press (lbs)
+          </label>
+          <input
+            type="number"
+            id="bench_press"
+            name="bench_press"
+            min="0"
+            max="500"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          />
+        </div>
+
+        <div>
+          <label for="squat" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Squat (lbs)
+          </label>
+          <input
+            type="number"
+            id="squat"
+            name="squat"
+            min="0"
+            max="700"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          />
+        </div>
+
+        <div>
+          <label for="deadlift" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Deadlift (lbs)
+          </label>
+          <input
+            type="number"
+            id="deadlift"
+            name="deadlift"
+            min="0"
+            max="800"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+          />
+        </div>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-150 ease-in-out"
+    >
+      Calculate Strength Standards
+    </button>
+  </form>
+
+  <div slot="results" id="results" class="hidden space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Bench Press</h3>
+        <div id="benchResults" class="space-y-2"></div>
+      </div>
+
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Squat</h3>
+        <div id="squatResults" class="space-y-2"></div>
+      </div>
+
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Deadlift</h3>
+        <div id="deadliftResults" class="space-y-2"></div>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Your Progress Analysis</h3>
+      <div id="progressAnalysis" class="space-y-4"></div>
+    </div>
+
+    <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+      <h4 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">Training Recommendations</h4>
+      <div id="recommendations" class="text-blue-800 dark:text-blue-200 text-sm space-y-2"></div>
+    </div>
+  </div>
+</CalculatorLayout>
+
+<script>
+  import { calculateStrengthStandards } from '../../utils/calculators';
+
+  const form = document.getElementById('strengthForm');
+  const resultsDiv = document.getElementById('results');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const age = parseInt((document.getElementById('age') as HTMLInputElement).value);
+    const weight = parseFloat((document.getElementById('weight') as HTMLInputElement).value);
+    const experience = (document.getElementById('experience') as HTMLSelectElement).value;
+    const jointHealth = (document.getElementById('joint_health') as HTMLSelectElement).value;
+    
+    // Get current lifts (if provided)
+    const currentBench = parseFloat((document.getElementById('bench_press') as HTMLInputElement).value) || 0;
+    const currentSquat = parseFloat((document.getElementById('squat') as HTMLInputElement).value) || 0;
+    const currentDeadlift = parseFloat((document.getElementById('deadlift') as HTMLInputElement).value) || 0;
+
+    // Calculate standards for each lift
+    const benchStandards = calculateStrengthStandards(age, weight, 'bench_press');
+    const squatStandards = calculateStrengthStandards(age, weight, 'squat');
+    const deadliftStandards = calculateStrengthStandards(age, weight, 'deadlift');
+
+    updateResults(
+      age,
+      weight,
+      experience,
+      jointHealth,
+      { current: currentBench, standards: benchStandards },
+      { current: currentSquat, standards: squatStandards },
+      { current: currentDeadlift, standards: deadliftStandards }
+    );
+
+    resultsDiv?.classList.remove('hidden');
+  });
+
+  function updateResults(
+    age: number,
+    weight: number,
+    experience: string,
+    jointHealth: string,
+    bench: { current: number; standards: any },
+    squat: { current: number; standards: any },
+    deadlift: { current: number; standards: any }
+  ) {
+    // Update individual lift results
+    updateLiftResults('benchResults', bench, 'Bench Press');
+    updateLiftResults('squatResults', squat, 'Squat');
+    updateLiftResults('deadliftResults', deadlift, 'Deadlift');
+
+    // Update progress analysis
+    const analysisDiv = document.getElementById('progressAnalysis')!;
+    analysisDiv.innerHTML = generateProgressAnalysis(bench, squat, deadlift);
+
+    // Update recommendations
+    const recommendationsDiv = document.getElementById('recommendations')!;
+    recommendationsDiv.innerHTML = generateRecommendations(age, experience, jointHealth, bench, squat, deadlift);
+  }
+
+  function updateLiftResults(elementId: string, lift: { current: number; standards: any }, liftName: string) {
+    const div = document.getElementById(elementId)!;
+    div.innerHTML = `
+      <p class="text-gray-700 dark:text-gray-300">Beginner: ${lift.standards.beginner}lbs</p>
+      <p class="text-gray-700 dark:text-gray-300">Intermediate: ${lift.standards.intermediate}lbs</p>
+      <p class="text-gray-700 dark:text-gray-300">Advanced: ${lift.standards.advanced}lbs</p>
+      ${lift.current ? `<p class="text-gray-700 dark:text-gray-300 font-medium mt-2">Your ${liftName}: ${lift.current}lbs</p>` : ''}
+    `;
+  }
+
+  function generateProgressAnalysis(bench: any, squat: any, deadlift: any): string {
+    let analysis = '<div class="space-y-3">';
+
+    if (bench.current || squat.current || deadlift.current) {
+      const ratios = calculateLiftRatios(bench.current, squat.current, deadlift.current);
+      analysis += `
+        <div class="mb-4">
+          <h4 class="font-medium mb-2">Lift Ratios</h4>
+          <p class="text-sm">Deadlift to Squat: ${ratios.deadliftToSquat}</p>
+          <p class="text-sm">Squat to Bench: ${ratios.squatToBench}</p>
+        </div>
+      `;
+    }
+
+    analysis += '</div>';
+    return analysis;
+  }
+
+  function calculateLiftRatios(bench: number, squat: number, deadlift: number) {
+    return {
+      deadliftToSquat: squat ? (deadlift / squat).toFixed(2) : 'N/A',
+      squatToBench: bench ? (squat / bench).toFixed(2) : 'N/A'
+    };
+  }
+
+  function generateRecommendations(
+    age: number,
+    experience: string,
+    jointHealth: string,
+    bench: any,
+    squat: any,
+    deadlift: any
+  ): string {
+    let recommendations = '<ul class="list-disc pl-4 space-y-2">';
+
+    // Age-based recommendations
+    if (age > 50) {
+      recommendations += '<li>Consider using RPE (Rate of Perceived Exertion) instead of percentage-based training</li>';
+    }
+
+    // Joint health recommendations
+    if (jointHealth === 'fair' || jointHealth === 'poor') {
+      recommendations += '<li>Focus on higher rep ranges (8-12) and perfect form</li>';
+      recommendations += '<li>Consider alternative exercises that are easier on the joints</li>';
+    }
+
+    // Experience-based recommendations
+    if (experience === 'beginner') {
+      recommendations += '<li>Focus on mastering proper form before increasing weight</li>';
+      recommendations += '<li>Aim for steady progress of 2-5 lbs per week on main lifts</li>';
+    }
+
+    recommendations += '</ul>';
+    return recommendations;
+  }
+</script>

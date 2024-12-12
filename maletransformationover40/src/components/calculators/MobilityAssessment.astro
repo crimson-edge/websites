@@ -1,0 +1,276 @@
+---
+import CalculatorLayout from './CalculatorLayout.astro';
+---
+
+<CalculatorLayout
+  title="Mobility Assessment Tool"
+  description="Assess your current mobility levels and get personalized recommendations for improvement."
+>
+  <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+    <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">How to Test Your Mobility</h3>
+    <div class="text-blue-800 dark:text-blue-200 text-sm space-y-4">
+      <div>
+        <h4 class="font-medium mb-1">Shoulder Mobility Test:</h4>
+        <p>Stand with arms at sides. Raise both arms overhead without arching your back. Rate your ability to reach full overhead position.</p>
+      </div>
+      <div>
+        <h4 class="font-medium mb-1">Hip Mobility Test:</h4>
+        <p>Perform a bodyweight squat. Rate your ability to reach parallel depth while keeping your chest up.</p>
+      </div>
+      <div>
+        <h4 class="font-medium mb-1">Ankle Mobility Test:</h4>
+        <p>Stand facing wall (5 inches away). Try to touch knee to wall without heel lifting. Rate your ankle flexibility.</p>
+      </div>
+      <div>
+        <h4 class="font-medium mb-1">Spine Mobility Test:</h4>
+        <p>Perform a standing rotation. Rate your ability to rotate your torso while keeping hips stable.</p>
+      </div>
+    </div>
+  </div>
+
+  <form id="mobilityForm" class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          Shoulder Mobility (1-10)
+        </label>
+        <input
+          type="range"
+          min="1"
+          max="10"
+          value="5"
+          class="w-full"
+          id="shoulderMobility"
+        />
+        <div class="flex justify-between text-xs text-gray-500">
+          <span>Limited</span>
+          <span>Excellent</span>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          Hip Mobility (1-10)
+        </label>
+        <input
+          type="range"
+          min="1"
+          max="10"
+          value="5"
+          class="w-full"
+          id="hipMobility"
+        />
+        <div class="flex justify-between text-xs text-gray-500">
+          <span>Limited</span>
+          <span>Excellent</span>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          Ankle Mobility (1-10)
+        </label>
+        <input
+          type="range"
+          min="1"
+          max="10"
+          value="5"
+          class="w-full"
+          id="ankleMobility"
+        />
+        <div class="flex justify-between text-xs text-gray-500">
+          <span>Limited</span>
+          <span>Excellent</span>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          Spine Mobility (1-10)
+        </label>
+        <input
+          type="range"
+          min="1"
+          max="10"
+          value="5"
+          class="w-full"
+          id="spineMobility"
+        />
+        <div class="flex justify-between text-xs text-gray-500">
+          <span>Limited</span>
+          <span>Excellent</span>
+        </div>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-150 ease-in-out"
+    >
+      Get Mobility Assessment
+    </button>
+  </form>
+
+  <div slot="results" id="results" class="hidden space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Overall Mobility Score</h3>
+        <div id="mobilityScore" class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2"></div>
+        <p id="scoreInterpretation" class="text-gray-600 dark:text-gray-400"></p>
+      </div>
+
+      <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Areas of Focus</h3>
+        <ul id="focusAreas" class="list-disc pl-4 text-gray-600 dark:text-gray-400 space-y-2"></ul>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Mobility Routine</h3>
+      <div id="mobilityRoutine" class="space-y-4"></div>
+    </div>
+
+    <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+      <h4 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">Additional Recommendations</h4>
+      <div id="recommendations" class="text-blue-800 dark:text-blue-200 text-sm space-y-2"></div>
+    </div>
+  </div>
+</CalculatorLayout>
+
+<script>
+  import { assessMobility } from '../../utils/exerciseUtils';
+
+  const form = document.getElementById('mobilityForm');
+  const resultsDiv = document.getElementById('results');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const shoulderMobility = parseInt((document.getElementById('shoulderMobility') as HTMLInputElement).value);
+    const hipMobility = parseInt((document.getElementById('hipMobility') as HTMLInputElement).value);
+    const ankleMobility = parseInt((document.getElementById('ankleMobility') as HTMLInputElement).value);
+    const spineMobility = parseInt((document.getElementById('spineMobility') as HTMLInputElement).value);
+
+    const assessment = assessMobility(shoulderMobility, hipMobility, ankleMobility, spineMobility);
+    
+    updateResults(assessment, {
+      shoulder: shoulderMobility,
+      hip: hipMobility,
+      ankle: ankleMobility,
+      spine: spineMobility
+    });
+    
+    resultsDiv?.classList.remove('hidden');
+  });
+
+  function updateResults(assessment: any, scores: any) {
+    // Update mobility score
+    const scoreDiv = document.getElementById('mobilityScore')!;
+    scoreDiv.textContent = assessment.score.toFixed(1) + '/10';
+
+    // Update score interpretation
+    const interpretationDiv = document.getElementById('scoreInterpretation')!;
+    interpretationDiv.textContent = getScoreInterpretation(assessment.score);
+
+    // Update focus areas
+    const focusAreasDiv = document.getElementById('focusAreas')!;
+    focusAreasDiv.innerHTML = assessment.recommendations.map((rec: string) => `<li>${rec}</li>`).join('');
+
+    // Update mobility routine
+    const routineDiv = document.getElementById('mobilityRoutine')!;
+    routineDiv.innerHTML = generateMobilityRoutine(scores);
+
+    // Update recommendations
+    const recommendationsDiv = document.getElementById('recommendations')!;
+    recommendationsDiv.innerHTML = generateRecommendations(assessment.score, scores);
+  }
+
+  function getScoreInterpretation(score: number): string {
+    if (score >= 8) return "Excellent mobility. Focus on maintenance and prevention.";
+    if (score >= 6) return "Good mobility. Address specific limitations for improvement.";
+    if (score >= 4) return "Fair mobility. Consistent mobility work recommended.";
+    return "Limited mobility. Consider working with a professional for improvement.";
+  }
+
+  function generateExerciseCard(title: string, description: string, sets: string, frequency: string): string {
+    return `
+      <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">${title}</h4>
+        <p class="text-gray-600 dark:text-gray-300 mb-2">${description}</p>
+        <div class="text-sm">
+          <p class="text-gray-500 dark:text-gray-400"><strong>Sets/Reps:</strong> ${sets}</p>
+          <p class="text-gray-500 dark:text-gray-400"><strong>Frequency:</strong> ${frequency}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function generateMobilityRoutine(scores: any): string {
+    let routine = '<div class="space-y-4">';
+
+    // Add exercises based on scores
+    if (scores.shoulder < 7) {
+      routine += generateExerciseCard(
+        "Shoulder Mobility Complex",
+        "Perform arm circles, wall slides, and band pull-aparts to improve shoulder range of motion.",
+        "2-3 sets of 10-15 reps each",
+        "Daily"
+      );
+    }
+
+    if (scores.hip < 7) {
+      routine += generateExerciseCard(
+        "Hip Mobility Flow",
+        "Perform hip flexor stretches, figure-4 stretches, and deep squat holds.",
+        "Hold each position 30-60 seconds",
+        "Daily"
+      );
+    }
+
+    if (scores.ankle < 7) {
+      routine += generateExerciseCard(
+        "Ankle Mobility Work",
+        "Wall ankle mobilization, calf stretches, and ankle circles.",
+        "2-3 sets of 10-15 reps",
+        "Daily"
+      );
+    }
+
+    if (scores.spine < 7) {
+      routine += generateExerciseCard(
+        "Spine Mobility Sequence",
+        "Cat-cow stretches, thoracic extensions, and controlled rotations.",
+        "10-15 reps each movement",
+        "Daily"
+      );
+    }
+
+    routine += '</div>';
+    return routine;
+  }
+
+  function generateRecommendations(score: number, scores: any): string {
+    let recommendations = '<ul class="list-disc pl-4">';
+
+    recommendations += '<li>Perform mobility work before strength training</li>';
+    recommendations += '<li>Stay consistent with daily mobility routine</li>';
+
+    if (score < 6) {
+      recommendations += '<li>Consider working with a mobility specialist</li>';
+      recommendations += '<li>Focus on proper form over range of motion initially</li>';
+    }
+
+    if (score >= 6 && score < 8) {
+      recommendations += '<li>Gradually increase range of motion in exercises</li>';
+      recommendations += '<li>Add dynamic movements to your warm-up routine</li>';
+    }
+
+    if (score >= 8) {
+      recommendations += '<li>Maintain current mobility with regular practice</li>';
+      recommendations += '<li>Help others improve their mobility</li>';
+    }
+
+    recommendations += '</ul>';
+    return recommendations;
+  }
+</script>

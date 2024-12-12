@@ -1,0 +1,298 @@
+---
+import CalculatorLayout from './CalculatorLayout.astro';
+
+// SEO metadata
+const title = "Progressive Overload Calculator for Men Over 40 | Male Transformation";
+const description = "Calculate optimal weight progression, sets, and reps with our specialized progressive overload calculator for men over 40. Get personalized training recommendations based on your experience level.";
+const keywords = "progressive overload, strength training, men over 40, weight progression, training calculator, workout progression";
+---
+
+<CalculatorLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg shadow-sm">
+      <h1 class="text-xl sm:text-2xl font-bold text-blue-900 dark:text-blue-100 mb-2">Progressive Overload Calculator</h1>
+      <p class="text-sm sm:text-base text-blue-800 dark:text-blue-200">Calculate optimal weight, rep, and set progressions based on your current training level and recovery capacity.</p>
+    </div>
+
+    <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">Progressive Overload After 40</h3>
+      <ul class="text-blue-800 dark:text-blue-200 text-sm space-y-2">
+        <li>Focus on sustainable progress</li>
+        <li>Balance intensity with recovery</li>
+        <li>Joint-friendly progression strategies</li>
+        <li>Multiple progression variables</li>
+      </ul>
+    </div>
+
+    <form id="overloadForm" class="space-y-6" aria-label="Progressive overload calculator form">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <div class="col-span-1">
+          <label for="exercise" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Exercise Type
+          </label>
+          <div class="mt-1 relative rounded-md shadow-sm">
+            <select
+              id="exercise"
+              name="exercise"
+              required
+              class="block w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+              aria-describedby="exercise-description"
+            >
+              <option value="compound">Compound (Squat, Deadlift, Bench)</option>
+              <option value="isolation">Isolation (Curls, Extensions)</option>
+              <option value="bodyweight">Bodyweight Exercises</option>
+            </select>
+          </div>
+          <p class="mt-1 text-xs text-gray-500" id="exercise-description">Select your exercise type</p>
+        </div>
+
+        <div class="col-span-1">
+          <label for="currentWeight" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Current Weight (lbs)
+          </label>
+          <div class="mt-1 relative rounded-md shadow-sm">
+            <input
+              type="number"
+              id="currentWeight"
+              name="currentWeight"
+              required
+              class="block w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+              aria-describedby="currentWeight-description"
+            />
+          </div>
+          <p class="mt-1 text-xs text-gray-500" id="currentWeight-description">Enter your current weight</p>
+        </div>
+
+        <div class="col-span-1">
+          <label for="currentReps" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Current Reps
+          </label>
+          <div class="mt-1 relative rounded-md shadow-sm">
+            <input
+              type="number"
+              id="currentReps"
+              name="currentReps"
+              min="1"
+              max="30"
+              required
+              class="block w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+              aria-describedby="currentReps-description"
+            />
+          </div>
+          <p class="mt-1 text-xs text-gray-500" id="currentReps-description">Enter your current reps</p>
+        </div>
+
+        <div class="col-span-1">
+          <label for="currentSets" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Current Sets
+          </label>
+          <div class="mt-1 relative rounded-md shadow-sm">
+            <input
+              type="number"
+              id="currentSets"
+              name="currentSets"
+              min="1"
+              max="10"
+              required
+              class="block w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+              aria-describedby="currentSets-description"
+            />
+          </div>
+          <p class="mt-1 text-xs text-gray-500" id="currentSets-description">Enter your current sets</p>
+        </div>
+
+        <div class="col-span-1">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Training Experience
+          </label>
+          <div class="mt-1 relative rounded-md shadow-sm">
+            <select
+              id="experience"
+              name="experience"
+              required
+              class="block w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+              aria-describedby="experience-description"
+            >
+              <option value="beginner">Beginner (0-2 years)</option>
+              <option value="intermediate">Intermediate (2-5 years)</option>
+              <option value="advanced">Advanced (5+ years)</option>
+            </select>
+          </div>
+          <p class="mt-1 text-xs text-gray-500" id="experience-description">Select your training experience</p>
+        </div>
+
+        <div class="col-span-1">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Recovery Capacity
+          </label>
+          <div class="mt-1 relative rounded-md shadow-sm">
+            <select
+              id="recovery"
+              name="recovery"
+              required
+              class="block w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm"
+              aria-describedby="recovery-description"
+            >
+              <option value="high">High (Excellent sleep/low stress)</option>
+              <option value="medium">Medium (Average sleep/moderate stress)</option>
+              <option value="low">Low (Poor sleep/high stress)</option>
+            </select>
+          </div>
+          <p class="mt-1 text-xs text-gray-500" id="recovery-description">Select your recovery capacity</p>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-white font-medium rounded-md shadow-sm transition duration-150 ease-in-out"
+        aria-label="Calculate progression plan"
+      >
+        Calculate Progression Plan
+      </button>
+    </form>
+
+    <div slot="results" id="results" class="hidden space-y-6 mt-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Weekly Progression Plan</h3>
+          <div id="progressionPlan" class="space-y-4"></div>
+        </div>
+
+        <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Monthly Goals</h3>
+          <div id="monthlyGoals" class="space-y-4"></div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Long-term Progress Strategy</h3>
+        <div id="longTermStrategy" class="space-y-4"></div>
+      </div>
+
+      <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+        <h4 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">Form and Safety Tips</h4>
+        <div id="safetyTips" class="text-blue-800 dark:text-blue-200 text-sm space-y-2"></div>
+      </div>
+    </div>
+  </div>
+</CalculatorLayout>
+
+<script>
+  import { calculateProgressiveOverload } from '../../utils/exerciseUtils';
+
+  const form = document.getElementById('overloadForm');
+  const resultsDiv = document.getElementById('results');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const exercise = (document.getElementById('exercise') as HTMLSelectElement).value;
+    const currentWeight = parseFloat((document.getElementById('currentWeight') as HTMLInputElement).value);
+    const currentReps = parseInt((document.getElementById('currentReps') as HTMLInputElement).value);
+    const currentSets = parseInt((document.getElementById('currentSets') as HTMLInputElement).value);
+    const experience = (document.getElementById('experience') as HTMLSelectElement).value;
+    const recovery = (document.getElementById('recovery') as HTMLSelectElement).value;
+
+    const progression = calculateProgressiveOverload(
+      exercise,
+      currentWeight,
+      currentReps,
+      currentSets,
+      experience,
+      recovery
+    );
+    
+    updateResults(progression);
+    resultsDiv?.classList.remove('hidden');
+  });
+
+  function updateResults(progression: any) {
+    // Update progression plan
+    const planDiv = document.getElementById('progressionPlan')!;
+    planDiv.innerHTML = generateWeeklyPlan(progression);
+
+    // Update monthly goals
+    const goalsDiv = document.getElementById('monthlyGoals')!;
+    goalsDiv.innerHTML = generateMonthlyGoals(progression);
+
+    // Update long-term strategy
+    const strategyDiv = document.getElementById('longTermStrategy')!;
+    strategyDiv.innerHTML = generateLongTermStrategy(progression);
+
+    // Update safety tips
+    const tipsDiv = document.getElementById('safetyTips')!;
+    tipsDiv.innerHTML = generateSafetyTips(progression);
+  }
+
+  function generateWeeklyPlan(progression: any): string {
+    return `
+      <div class="space-y-3">
+        <div class="text-sm text-gray-600 dark:text-gray-400">
+          <p class="font-semibold">Week 1-2:</p>
+          <ul class="list-disc pl-4">
+            <li>Weight: ${progression.weeklyWeight} lbs</li>
+            <li>Reps: ${progression.weeklyReps}</li>
+            <li>Sets: ${progression.weeklySets}</li>
+          </ul>
+        </div>
+        <div class="text-sm text-gray-600 dark:text-gray-400">
+          <p class="font-semibold">Focus Areas:</p>
+          <ul class="list-disc pl-4">
+            ${progression.focusAreas.map((area: string) => `<li>${area}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    `;
+  }
+
+  function generateMonthlyGoals(progression: any): string {
+    return `
+      <div class="space-y-3">
+        <div class="text-sm text-gray-600 dark:text-gray-400">
+          <p class="font-semibold">Target Progress:</p>
+          <ul class="list-disc pl-4">
+            <li>Weight: +${progression.monthlyWeightIncrease} lbs</li>
+            <li>Volume: +${progression.monthlyVolumeIncrease}%</li>
+          </ul>
+        </div>
+        <div class="text-sm text-gray-600 dark:text-gray-400">
+          <p class="font-semibold">Checkpoints:</p>
+          <ul class="list-disc pl-4">
+            ${progression.monthlyCheckpoints.map((checkpoint: string) => `<li>${checkpoint}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    `;
+  }
+
+  function generateLongTermStrategy(progression: any): string {
+    return `
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">3-Month Outlook</h4>
+          <ul class="list-disc pl-4 text-sm text-gray-600 dark:text-gray-400">
+            ${progression.longTermGoals.map((goal: string) => `<li>${goal}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Deload Strategy</h4>
+          <ul class="list-disc pl-4 text-sm text-gray-600 dark:text-gray-400">
+            ${progression.deloadStrategy.map((strategy: string) => `<li>${strategy}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    `;
+  }
+
+  function generateSafetyTips(progression: any): string {
+    return `
+      <ul class="list-disc pl-4">
+        ${progression.safetyTips.map((tip: string) => `<li>${tip}</li>`).join('')}
+      </ul>
+    `;
+  }
+</script>

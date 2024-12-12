@@ -1,0 +1,126 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import NutritionCalculator from '../../components/calculators/NutritionCalculator.astro';
+---
+
+<ToolLayout
+  title="Nutrition Planning Tools"
+  description="Complete nutrition planning tools designed for men over 40. Calculate your protein needs, macro distribution, and optimal meal timing based on your specific goals and schedule."
+>
+  <div class="prose dark:prose-invert max-w-none mb-8">
+    <h2>Why Proper Nutrition is Critical After 40</h2>
+    <p>
+      As men age, particularly after 40, nutritional needs change significantly. Hormonal changes, decreased muscle mass,
+      and slower recovery rates make proper nutrition even more crucial for maintaining health and achieving fitness goals.
+    </p>
+    
+    <div class="my-6">
+      <h3>Key Nutritional Considerations for Men Over 40</h3>
+      <ul>
+        <li><strong>Protein Needs:</strong> Increased protein requirements to combat age-related muscle loss</li>
+        <li><strong>Metabolic Changes:</strong> Typically requiring fewer calories but more nutrient-dense foods</li>
+        <li><strong>Recovery Nutrition:</strong> Strategic nutrient timing to support longer recovery periods</li>
+        <li><strong>Hormone Support:</strong> Proper fat intake for optimal testosterone production</li>
+      </ul>
+    </div>
+  </div>
+
+  <NutritionCalculator />
+
+  <div class="prose dark:prose-invert max-w-none mt-8">
+    <div class="my-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+      <h3 class="mt-0">Understanding Your Results</h3>
+      
+      <h4>Protein Recommendations</h4>
+      <ul>
+        <li>Minimum: Essential for maintaining muscle mass</li>
+        <li>Optimal: Supports muscle growth and recovery</li>
+        <li>Distribution: Spread across 4-5 meals for better utilization</li>
+      </ul>
+
+      <h4>Macro Distribution</h4>
+      <ul>
+        <li>Protein: Higher needs for muscle preservation</li>
+        <li>Carbs: Adjusted based on activity level and goals</li>
+        <li>Fats: Essential for hormone production</li>
+      </ul>
+
+      <h4>Meal Timing</h4>
+      <ul>
+        <li>Pre-workout: Fuel for performance</li>
+        <li>Post-workout: Optimal recovery window</li>
+        <li>Throughout day: Sustained energy and protein synthesis</li>
+      </ul>
+    </div>
+
+    <h2>Implementing Your Nutrition Plan</h2>
+
+    <h3>Protein Sources Guide</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Complete Proteins</h4>
+        <ul>
+          <li>Lean meats (chicken, turkey)</li>
+          <li>Fish (salmon, tuna)</li>
+          <li>Eggs</li>
+          <li>Greek yogurt</li>
+          <li>Whey protein supplements</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Plant-Based Options</h4>
+        <ul>
+          <li>Quinoa</li>
+          <li>Legumes + rice</li>
+          <li>Soy products</li>
+          <li>Hemp seeds</li>
+          <li>Pea protein supplements</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Quality Carbohydrate Sources</h3>
+    <ul>
+      <li>Sweet potatoes</li>
+      <li>Brown rice</li>
+      <li>Quinoa</li>
+      <li>Oats</li>
+      <li>Fruits (especially berries)</li>
+      <li>Vegetables</li>
+    </ul>
+
+    <h3>Healthy Fat Sources</h3>
+    <ul>
+      <li>Avocados</li>
+      <li>Nuts and seeds</li>
+      <li>Olive oil</li>
+      <li>Fatty fish</li>
+      <li>Eggs</li>
+    </ul>
+
+    <div class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg mt-6">
+      <h3 class="text-blue-900 dark:text-blue-100 mt-0">Pro Tips for Success</h3>
+      <ul class="text-blue-800 dark:text-blue-200">
+        <li>Prep meals in advance to ensure consistent nutrition</li>
+        <li>Keep protein-rich snacks readily available</li>
+        <li>Track your food intake for the first few weeks</li>
+        <li>Adjust portions based on hunger and energy levels</li>
+        <li>Stay hydrated - aim for 0.5-1oz per pound of body weight</li>
+      </ul>
+    </div>
+
+    <div class="mt-6">
+      <h3>Supplement Considerations</h3>
+      <p>
+        While whole foods should be your primary source of nutrition, certain supplements can be beneficial for men over 40:
+      </p>
+      <ul>
+        <li><strong>Protein Powder:</strong> Convenient for meeting increased protein needs</li>
+        <li><strong>Creatine Monohydrate:</strong> Supports muscle strength and recovery</li>
+        <li><strong>Vitamin D3:</strong> Essential for testosterone production and bone health</li>
+        <li><strong>Fish Oil:</strong> Supports joint health and reduces inflammation</li>
+        <li><strong>Magnesium:</strong> Aids in recovery and sleep quality</li>
+      </ul>
+    </div>
+  </div>
+</ToolLayout>

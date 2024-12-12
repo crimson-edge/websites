@@ -1,0 +1,111 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import MobilityAssessment from '../../components/calculators/MobilityAssessment.astro';
+---
+
+<ToolLayout
+  title="Mobility Assessment Tool"
+  description="Assess your mobility and flexibility levels with our comprehensive mobility assessment tool. Designed specifically for men over 40 to identify areas needing attention."
+>
+  <div class="prose dark:prose-invert max-w-none mb-8">
+    <h2>Why Mobility Matters After 40</h2>
+    <p>
+      As we age, maintaining good mobility becomes increasingly important. Proper mobility not only helps prevent injuries
+      but also improves workout performance and daily life quality. This assessment will help you identify areas that need
+      attention and provide targeted recommendations.
+    </p>
+    
+    <div class="my-6">
+      <h3>Benefits of Good Mobility</h3>
+      <ul>
+        <li><strong>Injury Prevention:</strong> Reduces risk of strains and joint problems</li>
+        <li><strong>Better Performance:</strong> Improves exercise form and effectiveness</li>
+        <li><strong>Daily Function:</strong> Makes everyday movements easier</li>
+        <li><strong>Pain Reduction:</strong> Helps alleviate common age-related discomfort</li>
+      </ul>
+    </div>
+  </div>
+
+  <MobilityAssessment />
+
+  <div class="prose dark:prose-invert max-w-none mt-8">
+    <div class="my-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+      <h3 class="mt-0">Understanding Your Assessment</h3>
+      
+      <h4>Score Interpretation</h4>
+      <ul>
+        <li><strong>Optimal:</strong> Excellent mobility for your age group</li>
+        <li><strong>Functional:</strong> Adequate for most activities but room for improvement</li>
+        <li><strong>Limited:</strong> Areas needing focused attention</li>
+        <li><strong>Restricted:</strong> Significant mobility limitations to address</li>
+      </ul>
+
+      <h4>Important Notes</h4>
+      <ul>
+        <li>Results are age-adjusted for realistic expectations</li>
+        <li>Focus on gradual improvement</li>
+        <li>Always work within pain-free ranges</li>
+        <li>Consider consulting a professional for severe restrictions</li>
+      </ul>
+    </div>
+
+    <h2>Improving Your Mobility</h2>
+
+    <h3>Key Areas of Focus</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Upper Body</h4>
+        <ul>
+          <li>Shoulder mobility</li>
+          <li>Thoracic spine flexibility</li>
+          <li>Neck range of motion</li>
+          <li>Wrist mobility</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Lower Body</h4>
+        <ul>
+          <li>Hip mobility</li>
+          <li>Ankle flexibility</li>
+          <li>Knee stability</li>
+          <li>Lower back health</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Implementation Strategies</h3>
+    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+      <h4 class="text-lg font-semibold mb-2">Daily Practice</h4>
+      <ul>
+        <li>Morning mobility routine (5-10 minutes)</li>
+        <li>Pre-workout mobility drills</li>
+        <li>Evening stretching/recovery</li>
+        <li>Movement breaks during long periods of sitting</li>
+      </ul>
+    </div>
+
+    <div class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg mt-6">
+      <h3 class="text-blue-900 dark:text-blue-100 mt-0">Pro Tips for Success</h3>
+      <ul class="text-blue-800 dark:text-blue-200">
+        <li>Consistency is more important than intensity</li>
+        <li>Focus on quality of movement over range</li>
+        <li>Use dynamic movements for warm-ups</li>
+        <li>Static stretching is best post-workout or before bed</li>
+        <li>Consider using mobility tools (foam rollers, bands)</li>
+      </ul>
+    </div>
+
+    <div class="mt-6">
+      <h3>When to Seek Professional Help</h3>
+      <p>
+        While this assessment provides valuable insights, consider consulting a professional if you:
+      </p>
+      <ul>
+        <li>Experience persistent pain during movements</li>
+        <li>Have significant asymmetries in mobility</li>
+        <li>Recently had surgery or injury</li>
+        <li>Need specific guidance for your condition</li>
+      </ul>
+    </div>
+  </div>
+</ToolLayout>

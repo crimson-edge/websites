@@ -1,0 +1,108 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ExerciseMatrix from '../../components/calculators/ExerciseMatrix.astro';
+---
+
+<ToolLayout
+  title="Exercise Selection Matrix"
+  description="Find the best exercises based on your joint health and experience level. Tailored recommendations for men over 40."
+>
+  <div class="prose dark:prose-invert max-w-none mb-8">
+    <h2>Smart Exercise Selection After 40</h2>
+    <p>
+      Choosing the right exercises becomes increasingly important as we age. This tool helps you select exercises
+      that match your capabilities and goals while considering joint health and recovery needs.
+    </p>
+    
+    <div class="my-6">
+      <h3>Key Selection Factors</h3>
+      <ul>
+        <li><strong>Joint Health:</strong> Exercises matched to your mobility and stability</li>
+        <li><strong>Training Experience:</strong> Appropriate progression of movement complexity</li>
+        <li><strong>Equipment Access:</strong> Options for various training environments</li>
+        <li><strong>Recovery Demands:</strong> Impact on overall training stress</li>
+      </ul>
+    </div>
+  </div>
+
+  <ExerciseMatrix />
+
+  <div class="prose dark:prose-invert max-w-none mt-8">
+    <div class="my-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+      <h3 class="mt-0">Understanding Your Results</h3>
+      
+      <h4>Exercise Categories</h4>
+      <ul>
+        <li><strong>Primary:</strong> Core movements for your program</li>
+        <li><strong>Secondary:</strong> Supporting exercises for development</li>
+        <li><strong>Alternatives:</strong> Joint-friendly variations</li>
+        <li><strong>Progression Path:</strong> Future exercise options</li>
+      </ul>
+
+      <h4>Important Considerations</h4>
+      <ul>
+        <li>Start with conservative loads to assess tolerance</li>
+        <li>Focus on quality movement patterns</li>
+        <li>Progress complexity gradually</li>
+        <li>Monitor joint response to new exercises</li>
+      </ul>
+    </div>
+
+    <h2>Exercise Implementation Guide</h2>
+
+    <h3>Movement Patterns</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Upper Body Patterns</h4>
+        <ul>
+          <li>Horizontal Push/Pull</li>
+          <li>Vertical Push/Pull</li>
+          <li>Shoulder Stability</li>
+          <li>Elbow Health</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Lower Body Patterns</h4>
+        <ul>
+          <li>Hip Hinge</li>
+          <li>Knee Dominant</li>
+          <li>Single Leg</li>
+          <li>Ankle Mobility</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Exercise Progression Strategy</h3>
+    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+      <h4 class="text-lg font-semibold mb-2">Progression Steps</h4>
+      <ul>
+        <li>Master form with bodyweight</li>
+        <li>Add load gradually</li>
+        <li>Increase movement complexity</li>
+        <li>Incorporate variations</li>
+      </ul>
+    </div>
+
+    <div class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg mt-6">
+      <h3 class="text-blue-900 dark:text-blue-100 mt-0">Exercise Selection Tips</h3>
+      <ul class="text-blue-800 dark:text-blue-200">
+        <li>Choose exercises that feel natural</li>
+        <li>Avoid movements that cause pain</li>
+        <li>Consider equipment availability</li>
+        <li>Balance intensity across workouts</li>
+        <li>Include variety for development</li>
+      </ul>
+    </div>
+
+    <div class="mt-6">
+      <h3>When to Modify Exercises</h3>
+      <ul>
+        <li>Persistent joint discomfort</li>
+        <li>Difficulty maintaining form</li>
+        <li>Plateau in progress</li>
+        <li>Changes in mobility</li>
+        <li>Equipment limitations</li>
+      </ul>
+    </div>
+  </div>
+</ToolLayout>

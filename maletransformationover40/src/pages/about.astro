@@ -1,28 +1,52 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<Layout title="About | Male Transformation Over 40">
-  <main class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold mb-8">About Us</h1>
-    
-    <div class="prose max-w-none">
-      <p class="mb-6">Welcome to Male Transformation Over 40, your trusted resource for health, fitness, and wellness information specifically tailored for men over 40.</p>
-      
-      <h2 class="text-2xl font-semibold mt-8 mb-4">Our Mission</h2>
-      <p class="mb-6">Our mission is to empower men over 40 with the knowledge, tools, and support they need to achieve their optimal health and fitness goals. We understand the unique challenges that come with maintaining fitness and wellness as we age, and we're here to help you navigate this journey successfully.</p>
-      
-      <h2 class="text-2xl font-semibold mt-8 mb-4">What We Offer</h2>
-      <ul class="list-disc pl-6 mb-6">
-        <li>Expert guidance on fitness and nutrition</li>
-        <li>Age-appropriate workout programs</li>
-        <li>Nutritional advice for optimal health</li>
-        <li>Community support and motivation</li>
-        <li>Latest research and health insights</li>
-      </ul>
-      
-      <h2 class="text-2xl font-semibold mt-8 mb-4">Contact Us</h2>
-      <p>Have questions or suggestions? We'd love to hear from you. Contact us at: <a href="mailto:info@maletransformationover40.com" class="text-primary hover:text-primary-dark">info@maletransformationover40.com</a></p>
+<MainLayout title="About Us">
+  <main class="min-h-screen py-12 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          About Male Transformation Over 40
+        </h1>
+      </div>
+
+      <div class="prose prose-lg max-w-none dark:prose-invert">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            We are dedicated to helping men over 40 achieve their fitness and health goals through scientifically-backed methods and practical approaches that work for busy professionals.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Our Mission</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            To provide men over 40 with the knowledge, tools, and support they need to transform their bodies and maintain optimal health, while considering the unique challenges and requirements of this age group.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Our Approach</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            We combine proven training methodologies with cutting-edge research to create programs that are:
+          </p>
+          <ul class="list-disc pl-6 mb-6 text-gray-600 dark:text-gray-300">
+            <li>Specifically designed for men over 40</li>
+            <li>Based on scientific research</li>
+            <li>Adaptable to different fitness levels</li>
+            <li>Time-efficient and practical</li>
+            <li>Focused on long-term sustainability</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Why Choose Us</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Our platform offers:
+          </p>
+          <ul class="list-disc pl-6 mb-6 text-gray-600 dark:text-gray-300">
+            <li>Customized training programs</li>
+            <li>Evidence-based nutrition guidance</li>
+            <li>Recovery optimization strategies</li>
+            <li>Community support and motivation</li>
+            <li>Expert advice and regular content updates</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </main>
-</Layout>
+</MainLayout>
