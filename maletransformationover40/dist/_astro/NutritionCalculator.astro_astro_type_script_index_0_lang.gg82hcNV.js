@@ -22,3 +22,4 @@ function m(e){const n=e.weight*.453592,a=e.height*2.54,t=10*n+6.25*a-5*e.age+5;l
     `).join("");const o=document.getElementById("recommendationsResults");o.innerHTML=e.recommendations.map(s=>`
       <p>• ${s}</p>
     `).join("")}
+//# sourceMappingURL=NutritionCalculator.astro_astro_type_script_index_0_lang.gg82hcNV.js.map

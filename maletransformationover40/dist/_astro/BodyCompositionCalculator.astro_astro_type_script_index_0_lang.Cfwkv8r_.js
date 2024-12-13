@@ -15,3 +15,4 @@ function l(e){const t=u(e),n=y(t,e.age),o=m(e,t),r=h(o,e.age),a=e.waist/e.hip,i=
         `).join("")}
       </ul>
     `}
+//# sourceMappingURL=BodyCompositionCalculator.astro_astro_type_script_index_0_lang.Cfwkv8r_.js.map
