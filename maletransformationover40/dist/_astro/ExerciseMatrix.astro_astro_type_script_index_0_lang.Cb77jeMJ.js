@@ -1,4 +1,4 @@
-import{g as d}from"./exerciseUtils.CRaVo5hT.js";const c=document.getElementById("exerciseForm"),m=document.getElementById("results");c?.addEventListener("submit",i=>{i.preventDefault();const e=parseInt(document.getElementById("shoulderHealth").value),s=parseInt(document.getElementById("hipHealth").value),l=parseInt(document.getElementById("backHealth").value),t=parseInt(document.getElementById("ankleHealth").value),n=document.getElementById("targetMuscle").value,a=document.getElementById("experience").value,r={mobility:(e+s+l+t)/4,pain:10-Math.min(e,s,l,t),strength:a==="beginner"?5:a==="intermediate"?7:9},o=d(n,r,a);u(o,r),m?.classList.remove("hidden")});function u(i,e){const s=document.getElementById("recommendedExercises"),l=document.getElementById("guidelines");s.innerHTML=i.map(t=>`
+import{g as d}from"./exerciseUtils.DU9T_pDC.js";const c=document.getElementById("exerciseForm"),m=document.getElementById("results");c?.addEventListener("submit",i=>{i.preventDefault();const e=parseInt(document.getElementById("shoulderHealth").value),s=parseInt(document.getElementById("hipHealth").value),l=parseInt(document.getElementById("backHealth").value),t=parseInt(document.getElementById("ankleHealth").value),n=document.getElementById("targetMuscle").value,a=document.getElementById("experience").value,r={mobility:(e+s+l+t)/4,pain:10-Math.min(e,s,l,t),strength:a==="beginner"?5:a==="intermediate"?7:9},o=d(n,r,a);u(o,r),m?.classList.remove("hidden")});function u(i,e){const s=document.getElementById("recommendedExercises"),l=document.getElementById("guidelines");s.innerHTML=i.map(t=>`
       <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">${t.name}</h3>
         <p class="text-gray-600 dark:text-gray-400 mb-2">${t.description}</p>
@@ -32,4 +32,4 @@ import{g as d}from"./exerciseUtils.CRaVo5hT.js";const c=document.getElementById(
       <li>Rest 1-2 minutes between sets</li>
       <li>Focus on proper form over weight</li>
     `,e+="</ul>",e}
-//# sourceMappingURL=ExerciseMatrix.astro_astro_type_script_index_0_lang.Dl4I5b9Y.js.map
+//# sourceMappingURL=ExerciseMatrix.astro_astro_type_script_index_0_lang.Cb77jeMJ.js.map

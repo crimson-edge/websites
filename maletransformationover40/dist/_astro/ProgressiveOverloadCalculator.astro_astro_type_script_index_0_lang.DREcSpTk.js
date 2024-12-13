@@ -1,4 +1,4 @@
-import{b as c}from"./exerciseUtils.CRaVo5hT.js";const d=document.getElementById("overloadForm"),o=document.getElementById("results");d?.addEventListener("submit",e=>{e.preventDefault();const t=document.getElementById("exercise").value,l=parseFloat(document.getElementById("currentWeight").value),s=parseInt(document.getElementById("currentReps").value),a=parseInt(document.getElementById("currentSets").value),n=document.getElementById("experience").value,i=document.getElementById("recovery").value,r=c(t,l,s,a,n,i);u(r),o?.classList.remove("hidden")});function u(e){const t=document.getElementById("progressionPlan");t.innerHTML=m(e);const l=document.getElementById("monthlyGoals");l.innerHTML=g(e);const s=document.getElementById("longTermStrategy");s.innerHTML=y(e);const a=document.getElementById("safetyTips");a.innerHTML=p(e)}function m(e){return`
+import{c}from"./exerciseUtils.DU9T_pDC.js";const d=document.getElementById("overloadForm"),o=document.getElementById("results");d?.addEventListener("submit",e=>{e.preventDefault();const t=document.getElementById("exercise").value,l=parseFloat(document.getElementById("currentWeight").value),s=parseInt(document.getElementById("currentReps").value),a=parseInt(document.getElementById("currentSets").value),n=document.getElementById("experience").value,i=document.getElementById("recovery").value,r=c(t,l,s,a,n,i);u(r),o?.classList.remove("hidden")});function u(e){const t=document.getElementById("progressionPlan");t.innerHTML=m(e);const l=document.getElementById("monthlyGoals");l.innerHTML=g(e);const s=document.getElementById("longTermStrategy");s.innerHTML=y(e);const a=document.getElementById("safetyTips");a.innerHTML=p(e)}function m(e){return`
       <div class="space-y-3">
         <div class="text-sm text-gray-600 dark:text-gray-400">
           <p class="font-semibold">Week 1-2:</p>
@@ -51,4 +51,4 @@ import{b as c}from"./exerciseUtils.CRaVo5hT.js";const d=document.getElementById(
         ${e.safetyTips.map(t=>`<li>${t}</li>`).join("")}
       </ul>
     `}
-//# sourceMappingURL=ProgressiveOverloadCalculator.astro_astro_type_script_index_0_lang.tseWOydl.js.map
+//# sourceMappingURL=ProgressiveOverloadCalculator.astro_astro_type_script_index_0_lang.DREcSpTk.js.map
