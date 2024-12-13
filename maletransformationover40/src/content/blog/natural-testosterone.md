@@ -1,7 +1,7 @@
 ---
 title: "Natural Testosterone Optimization: A Complete Guide"
 description: "Learn evidence-based strategies to optimize your testosterone levels naturally through diet, exercise, lifestyle changes, and supplementation."
-pubDate: "Dec 12 2024"
+pubDate: "2024-12-12"
 heroImage: "/images/natural-t.jpg"
 featured: false
 author: "Male Transformation"

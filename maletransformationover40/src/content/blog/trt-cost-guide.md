@@ -1,7 +1,7 @@
 ---
 title: "TRT Cost Guide: Understanding Testosterone Replacement Therapy Expenses"
 description: "A comprehensive breakdown of TRT costs, including treatment options, insurance coverage, and ways to optimize your investment in hormone therapy."
-pubDate: "Dec 12 2024"
+pubDate: "2024-12-12"
 heroImage: "/images/trt-cost.jpg"
 featured: false
 author: "Male Transformation"
