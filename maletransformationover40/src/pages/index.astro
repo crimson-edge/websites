@@ -5,7 +5,8 @@ import AboutSection from '../components/sections/AboutSection.astro';
 import ResourcesSection from '../components/sections/ResourcesSection.astro';
 import CoachingSection from '../components/sections/CoachingSection.astro';
 import SupplementationSection from '../components/sections/SupplementationSection.astro';
-import Layout from '../layouts/Layout.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import Testimonials from '../components/Testimonials.astro';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const tools = [
@@ -75,8 +76,12 @@ const categories = [...new Set(tools.map(tool => tool.category))];
 
 ---
 
-<MainLayout title="Male Transformation Over 40 - Optimize Your Health and Fitness">
+<MainLayout 
+  title="Male Transformation Over 40 - Expert Fitness & Nutrition Guidance"
+  description="Specialized fitness and nutrition guidance for men over 40. Transform your body and optimize your health with age-appropriate strategies and expert support."
+>
   <HeroSection />
+  
   <main class="min-h-screen py-12 bg-gray-50 dark:bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Hero Section -->
@@ -120,6 +125,22 @@ const categories = [...new Set(tools.map(tool => tool.category))];
       </section>
 
       <SupplementationSection />
+
+      <!-- Newsletter Section -->
+      <div class="my-16">
+        <div class="max-w-2xl mx-auto text-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+            Get Expert Tips & Strategies
+          </h2>
+          <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+            Join our community of men over 40 and receive weekly insights on fitness, nutrition, and healthy living.
+          </p>
+        </div>
+        <NewsletterSignup />
+      </div>
+
+      <!-- Testimonials Section -->
+      <Testimonials />
 
       <!-- Community Section -->
       <div class="mt-16">

@@ -1,0 +1,89 @@
+---
+---
+
+<div class="w-full max-w-md mx-auto">
+  <form id="newsletter-form" class="bg-white dark:bg-gray-800 shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4">
+    <div class="mb-6 text-center">
+      <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Get Transformation Tips</h3>
+      <p class="text-gray-600 dark:text-gray-300">Join our community and receive weekly tips for your fitness journey.</p>
+    </div>
+    
+    <div class="mb-4">
+      <label class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2" for="email">
+        Email Address
+      </label>
+      <input 
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-700 dark:border-gray-600 dark:text-white" 
+        id="email" 
+        type="email" 
+        placeholder="you@example.com"
+        required
+      >
+    </div>
+    
+    <div class="flex items-center justify-between">
+      <button 
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-200" 
+        type="submit"
+      >
+        Subscribe
+      </button>
+    </div>
+    
+    <div id="form-message" class="mt-4 text-center hidden">
+      <p class="text-green-600 dark:text-green-400" id="success-message"></p>
+      <p class="text-red-600 dark:text-red-400" id="error-message"></p>
+    </div>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  const formMessage = document.getElementById('form-message') as HTMLDivElement;
+  const successMessage = document.getElementById('success-message') as HTMLParagraphElement;
+  const errorMessage = document.getElementById('error-message') as HTMLParagraphElement;
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const emailInput = form.querySelector('#email') as HTMLInputElement;
+      const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      
+      // Disable the submit button and show loading state
+      submitButton.disabled = true;
+      submitButton.innerHTML = 'Subscribing...';
+      
+      try {
+        const response = await fetch('/api/newsletter-signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: emailInput.value,
+          }),
+        });
+
+        const data = await response.json();
+
+        formMessage.classList.remove('hidden');
+        
+        if (response.ok) {
+          successMessage.textContent = data.message;
+          errorMessage.textContent = '';
+          form.reset();
+        } else {
+          throw new Error(data.error || 'Failed to subscribe');
+        }
+      } catch (error) {
+        formMessage.classList.remove('hidden');
+        errorMessage.textContent = error instanceof Error ? error.message : 'An error occurred';
+        successMessage.textContent = '';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Subscribe';
+      }
+    });
+  }
+</script>
