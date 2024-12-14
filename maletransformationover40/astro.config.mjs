@@ -10,6 +10,7 @@ export default defineConfig({
   adapter: netlify(),
   build: {
     format: 'directory',
+    assets: 'assets'
   },
   vite: {
     logLevel: 'info',
