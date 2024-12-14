@@ -3,22 +3,49 @@ const testimonials = [
   {
     name: "John D., 45",
     role: "Business Executive",
-    image: "/testimonials/john.jpg", // You'll need to add these images
-    quote: "I never thought I could get back in shape at 45, but this program proved me wrong. Lost 30 lbs and gained more energy than I've had in years!"
+    image: "/testimonials/john.jpg",
+    quote: "I never thought I could get back in shape at 45, but this program proved me wrong. Lost 30 lbs and gained more energy than I've had in years!",
+    imageCredit: "Photo by Behrouz Sasani on Unsplash"
   },
   {
     name: "Mike R., 52",
     role: "IT Professional",
     image: "/testimonials/mike.jpg",
-    quote: "The over-40 specific approach made all the difference. Finally, a program that understands what works for men my age."
+    quote: "The over-40 specific approach made all the difference. Finally, a program that understands what works for men my age.",
+    imageCredit: "Photo by Nicolas Horn on Unsplash"
   },
   {
     name: "David S., 48",
     role: "Small Business Owner",
     image: "/testimonials/david.jpg",
-    quote: "From dad bod to fit at 48. The nutrition guidance and workout plans were exactly what I needed to transform my body and health."
+    quote: "From dad bod to fit at 48. The nutrition guidance and workout plans were exactly what I needed to transform my body and health.",
+    imageCredit: "Photo by Ben Parker on Unsplash"
   }
 ];
+
+const testimonialSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": testimonials.map((testimonial, index) => ({
+    "@type": "Review",
+    "position": index + 1,
+    "author": {
+      "@type": "Person",
+      "name": testimonial.name
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    },
+    "reviewBody": testimonial.quote,
+    "itemReviewed": {
+      "@type": "Product",
+      "name": "Male Transformation Over 40 Program",
+      "description": "Fitness and nutrition program specifically designed for men over 40"
+    }
+  }))
+};
 ---
 
 <section class="py-12 bg-gray-50 dark:bg-gray-900">
@@ -34,14 +61,17 @@ const testimonials = [
 
     <div class="mt-12 grid gap-8 lg:grid-cols-3 lg:gap-x-8">
       {testimonials.map((testimonial) => (
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
           <div class="p-8">
             <div class="flex items-center">
-              <img
-                class="h-12 w-12 rounded-full object-cover"
-                src={testimonial.image}
-                alt={testimonial.name}
-              />
+              <div class="relative w-16 h-16">
+                <img
+                  class="rounded-full object-cover w-full h-full"
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  title={testimonial.imageCredit}
+                />
+              </div>
               <div class="ml-4">
                 <div class="text-lg font-medium text-gray-900 dark:text-white">
                   {testimonial.name}
@@ -52,7 +82,7 @@ const testimonials = [
               </div>
             </div>
             <div class="mt-4">
-              <p class="text-gray-600 dark:text-gray-300">
+              <p class="text-gray-600 dark:text-gray-300 italic">
                 "{testimonial.quote}"
               </p>
             </div>
@@ -60,5 +90,11 @@ const testimonials = [
         </div>
       ))}
     </div>
+    
+    <div class="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+      <p>Photos courtesy of Unsplash photographers</p>
+    </div>
   </div>
 </section>
+
+<script type="application/ld+json" set:html={JSON.stringify(testimonialSchema)} />

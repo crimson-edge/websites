@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import ChatWidget from '../components/ChatWidget.astro';
+import StructuredData from '../components/StructuredData.astro';
 
 interface Props {
   title: string;
@@ -30,6 +31,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     
+    <!-- Additional SEO Meta Tags -->
+    <meta name="keywords" content="fitness over 40, men's health, weight loss for men, strength training, nutrition for men, male transformation, fitness coaching" />
+    <meta name="author" content="Male Transformation Over 40" />
+    <meta name="robots" content="index, follow" />
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
@@ -47,16 +53,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="generator" content={Astro.generator} />
     <ViewTransitions />
     
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Male Transformation Over 40",
-        "url": "https://maletransformationover40.com",
-        "description": "Expert guidance for men over 40 looking to transform their bodies and lives through proven fitness and nutrition strategies."
-      }
-    </script>
+    <StructuredData />
   </head>
   <body class="min-h-screen bg-white dark:bg-gray-900">
     <slot />

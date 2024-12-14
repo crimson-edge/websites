@@ -1,0 +1,29 @@
+---
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Male Transformation Over 40",
+  "url": "https://maletransformationover40.com",
+  "description": "Expert guidance for men over 40 looking to transform their bodies and lives through proven fitness and nutrition strategies.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://maletransformationover40.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Male Transformation Over 40",
+  "url": "https://maletransformationover40.com",
+  "logo": "https://maletransformationover40.com/logo.png",
+  "sameAs": [
+    "https://facebook.com/maletransformationover40",
+    "https://instagram.com/maletransformationover40"
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
