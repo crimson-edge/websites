@@ -1,7 +1,6 @@
 [build]
-  base = "moneymasteryresources"
-  command = "npm install && npm run build"
-  publish = "../moneymasteryresources/dist"
+  command = "cd moneymasteryresources && npm install && npm run build"
+  publish = "moneymasteryresources/dist"
 
 [build.environment]
   NODE_VERSION = "18"
