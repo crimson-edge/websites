@@ -3,7 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ChatWidget from '../components/ChatWidget.astro';
 
-export interface Props {
+interface Props {
   title: string;
   description?: string;
   image?: string;
@@ -12,7 +12,7 @@ export interface Props {
 
 const {
   title,
-  description = "Discover extreme couponing strategies, shopping hacks, and loyalty program optimization techniques. Save money on every purchase with our expert tips and tools.",
+  description = "Save Earn Share - Your ultimate resource for saving money through digital coupons, rewards programs, and smart shopping strategies.",
   image = "/images/og-image.jpg",
   canonicalURL = Astro.url.href,
 } = Astro.props;
@@ -21,14 +21,11 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Save Earn Share",
+  "url": "https://saveearnshare.com",
   "description": description,
-  "url": canonicalURL,
   "potentialAction": {
     "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": `${Astro.url.origin}/search?q={search_term_string}`
-    },
+    "target": "https://saveearnshare.com/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 };
@@ -40,11 +37,13 @@ const schema = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title} | Save Earn Share - Expert Couponing & Shopping Strategies</title>
     
-    <!-- SEO Meta Tags -->
+    <!-- Primary Meta Tags -->
+    <title>{title} | Save Earn Share - Expert Couponing & Shopping Strategies</title>
+    <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    
+    <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
     
     <!-- Open Graph / Facebook -->
@@ -61,8 +60,15 @@ const schema = {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
     
-    <!-- Keywords -->
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Save Earn Share" />
     <meta name="keywords" content="extreme couponing, shopping strategies, loyalty rewards, store rewards, digital coupons, savings tips, coupon stacking, cashback apps, grocery savings, retail discounts" />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
     
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
@@ -70,21 +76,9 @@ const schema = {
     <!-- Mobile Theme Color -->
     <meta name="theme-color" content="#4F46E5" />
     
-    <!-- Font Preloading -->
-    <link
-      rel="preload"
-      href="/fonts/inter-var.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    
-    <!-- Responsive Viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    
     <!-- PWA Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
     
@@ -147,7 +141,7 @@ const schema = {
   @media (prefers-color-scheme: dark) {
     body {
       background-color: #111827;
-      color: #fff;
+      color: #F3F4F6;
     }
   }
 

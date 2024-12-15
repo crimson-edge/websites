@@ -1,27 +1,40 @@
 ---
 ---
 
-<script is:inline>
-  (function(d, m){
-    var kommunicateSettings = {
-      "appId": "2b14f12c3b85cfd2931e13c95d3dac5c7",
-      "popupWidget": true,
-      "automaticChatOpenOnNavigation": true
-    };
-    var s = document.createElement("script"); 
-    s.type = "text/javascript"; 
-    s.async = true;
-    s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
-    var h = document.getElementsByTagName("head")[0]; 
-    h.appendChild(s);
-    window.kommunicate = m; 
-    m._globals = kommunicateSettings;
-  })(document, window.kommunicate || {});
+<script>
+    (function(d, m){
+        var kommunicateSettings = {
+            "appId": "2b14f12c3b85cfd2931e13c95d3dac5c7", 
+            "popupWidget": true,
+            "automaticChatOpenOnNavigation": false,
+            "onInit": function() {
+                // Initialize any custom settings here
+                Kommunicate.updateSettings({
+                    "botTitle": "Save Earn Share Assistant",
+                    "colorPallette": {
+                        "primaryColor": "#4F46E5", 
+                    }
+                });
+            }
+        };
+        var s = document.createElement("script"); 
+        s.type = "text/javascript"; 
+        s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; 
+        h.appendChild(s);
+        window.kommunicate = m; 
+        m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
 </script>
 
-<style is:inline>
-  #kommunicate-widget-iframe {
-    right: 20px !important;
-    bottom: 20px !important;
-  }
+<style>
+    /* Custom styles for the chat widget if needed */
+    .km-chat-widget {
+        z-index: 1000;
+    }
+    #kommunicate-widget-iframe {
+        right: 20px !important;
+        bottom: 20px !important;
+    }
 </style>
