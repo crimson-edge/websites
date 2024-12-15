@@ -10,7 +10,14 @@ export default defineConfig({
   adapter: netlify(),
   build: {
     format: 'directory',
-    assets: 'assets'
+  },
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    },
+    remotePatterns: [{
+      protocol: 'https'
+    }]
   },
   vite: {
     logLevel: 'info',
