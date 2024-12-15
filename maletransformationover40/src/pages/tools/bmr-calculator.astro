@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BMRCalculator from '../../components/calculators/BMRCalculator.astro';
+
+const title = "BMR Calculator for Men Over 40";
+const description = "Calculate your Basal Metabolic Rate (BMR) and daily calorie needs. Specifically designed for men over 40 to support their transformation journey.";
+const keywords = "BMR calculator, calorie calculator, TDEE calculator, men over 40, fitness calculator";
+---
+
+<Layout title={title} description={description} keywords={keywords}>
+  <main class="min-h-screen py-12 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+          <li><a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a></li>
+          <li><span class="mx-2">/</span></li>
+          <li><a href="/tools" class="hover:text-blue-600 dark:hover:text-blue-400">Tools</a></li>
+          <li><span class="mx-2">/</span></li>
+          <li class="text-gray-900 dark:text-white">BMR Calculator</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg shadow-lg p-8 mb-8 text-white">
+        <h1 class="text-3xl font-bold mb-4">BMR Calculator</h1>
+        <p class="text-lg opacity-90">
+          Calculate your Basal Metabolic Rate and daily calorie needs, specifically calibrated for men over 40.
+        </p>
+      </div>
+
+      <!-- Introduction -->
+      <div class="prose dark:prose-invert max-w-none mb-8">
+        <p>
+          Understanding your Basal Metabolic Rate (BMR) is crucial for your transformation journey, especially for men over 40. 
+          Your BMR represents the number of calories your body burns at rest to maintain basic life functions.
+        </p>
+        
+        <h2>Why BMR Matters for Men Over 40</h2>
+        <ul>
+          <li>Metabolism naturally slows down with age</li>
+          <li>Helps in creating effective weight management strategies</li>
+          <li>Essential for maintaining muscle mass</li>
+          <li>Guides proper nutrition planning</li>
+        </ul>
+      </div>
+
+      <!-- Calculator -->
+      <BMRCalculator />
+
+      <!-- Additional Information -->
+      <div class="prose dark:prose-invert max-w-none mt-8">
+        <h2>How to Use Your BMR Results</h2>
+        <p>
+          Your BMR calculation provides two important numbers:
+        </p>
+        <ul>
+          <li><strong>Base BMR:</strong> The calories your body burns at complete rest</li>
+          <li><strong>Daily Calorie Needs:</strong> Your total daily energy expenditure based on activity level</li>
+        </ul>
+
+        <h3>Tips for Success</h3>
+        <ul>
+          <li>Use these numbers as a starting point for your nutrition plan</li>
+          <li>Adjust your intake based on your specific goals (muscle gain or fat loss)</li>
+          <li>Remember that BMR can change with age, muscle mass, and activity level</li>
+          <li>Recalculate every few months or when your activity level changes</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,107 @@
+---
+import { Image } from 'astro:assets';
+import johnImage from '../assets/testimonials/john.jpg';
+import mikeImage from '../assets/testimonials/mike.jpg';
+import davidImage from '../assets/testimonials/david.jpg';
+
+const testimonials = [
+  {
+    name: "John D., 45",
+    role: "Business Executive",
+    image: johnImage,
+    quote: "I never thought I could get back in shape at 45, but this program proved me wrong. Lost 30 lbs and gained more energy than I've had in years!",
+    imageCredit: "Photo by Behrouz Sasani on Unsplash"
+  },
+  {
+    name: "Mike R., 52",
+    role: "IT Professional",
+    image: mikeImage,
+    quote: "The over-40 specific approach made all the difference. Finally, a program that understands what works for men my age.",
+    imageCredit: "Photo by Nicolas Horn on Unsplash"
+  },
+  {
+    name: "David S., 48",
+    role: "Small Business Owner",
+    image: davidImage,
+    quote: "From dad bod to fit at 48. The nutrition guidance and workout plans were exactly what I needed to transform my body and health.",
+    imageCredit: "Photo by Ben Parker on Unsplash"
+  }
+];
+
+const testimonialSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": testimonials.map((testimonial, index) => ({
+    "@type": "Review",
+    "position": index + 1,
+    "author": {
+      "@type": "Person",
+      "name": testimonial.name
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    },
+    "reviewBody": testimonial.quote,
+    "itemReviewed": {
+      "@type": "Product",
+      "name": "Male Transformation Over 40 Program",
+      "description": "Fitness and nutrition program specifically designed for men over 40"
+    }
+  }))
+};
+---
+
+<section class="py-12 bg-gray-50 dark:bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
+        Success Stories
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+        Real transformations from men just like you
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-8 lg:grid-cols-3 lg:gap-x-8">
+      {testimonials.map((testimonial) => (
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
+          <div class="p-8">
+            <div class="flex items-center">
+              <div class="relative w-16 h-16">
+                <Image
+                  class="rounded-full object-cover w-full h-full"
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  title={testimonial.imageCredit}
+                  width={64}
+                  height={64}
+                />
+              </div>
+              <div class="ml-4">
+                <div class="text-lg font-medium text-gray-900 dark:text-white">
+                  {testimonial.name}
+                </div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">
+                  {testimonial.role}
+                </div>
+              </div>
+            </div>
+            <div class="mt-4">
+              <p class="text-gray-600 dark:text-gray-300 italic">
+                "{testimonial.quote}"
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+      <p>Photos courtesy of Unsplash photographers</p>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(testimonialSchema)} />

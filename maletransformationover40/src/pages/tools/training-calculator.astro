@@ -1,0 +1,96 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import TrainingCalculator from '../../components/calculators/TrainingCalculator.astro';
+---
+
+<ToolLayout
+  title="Training Volume & Recovery Calculator"
+  description="Optimize your training volume and recovery time based on age-specific factors. Designed specifically for men over 40 to maximize results while preventing overtraining."
+>
+  <div class="prose dark:prose-invert max-w-none mb-8">
+    <h2>Why Training Volume & Recovery Matter After 40</h2>
+    <p>
+      As men age, particularly after 40, proper training volume and recovery become crucial factors in achieving results
+      while preventing injury and overtraining. Research shows that recovery time increases with age, while the body's
+      ability to handle high training volumes decreases.
+    </p>
+    
+    <div class="my-6">
+      <h3>Key Benefits of Proper Training Volume</h3>
+      <ul>
+        <li>Maximizes muscle growth and strength gains</li>
+        <li>Prevents overtraining and injury</li>
+        <li>Optimizes hormonal response</li>
+        <li>Ensures consistent progress</li>
+      </ul>
+    </div>
+
+    <div class="my-6">
+      <h3>Understanding the Metrics</h3>
+      
+      <h4>Training Volume</h4>
+      <p>
+        Training volume refers to the total amount of work performed, typically measured in sets per muscle group per week.
+        For men over 40, finding the right balance is crucial:
+      </p>
+      <ul>
+        <li><strong>Too little:</strong> Insufficient stimulus for growth</li>
+        <li><strong>Too much:</strong> Increased risk of injury and poor recovery</li>
+      </ul>
+
+      <h4>Recovery Time</h4>
+      <p>
+        Recovery needs increase with age due to:
+      </p>
+      <ul>
+        <li>Decreased hormone production</li>
+        <li>Slower tissue repair</li>
+        <li>Reduced cellular regeneration</li>
+      </ul>
+    </div>
+  </div>
+
+  <TrainingCalculator />
+
+  <div class="prose dark:prose-invert max-w-none mt-8">
+    <h2>How to Apply These Results</h2>
+    
+    <h3>Weekly Training Split Example</h3>
+    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+      <p class="font-semibold">Based on 48-hour recovery period:</p>
+      <ul>
+        <li>Monday: Upper Body Push</li>
+        <li>Tuesday: Lower Body</li>
+        <li>Wednesday: Rest</li>
+        <li>Thursday: Upper Body Pull</li>
+        <li>Friday: Lower Body</li>
+        <li>Saturday/Sunday: Rest</li>
+      </ul>
+    </div>
+
+    <h3>Volume Adjustment Guidelines</h3>
+    <ul>
+      <li>Start at the lower end of the recommended range</li>
+      <li>Increase volume gradually over 4-6 weeks</li>
+      <li>Monitor recovery and performance</li>
+      <li>Reduce volume during high-stress periods</li>
+    </ul>
+
+    <h3>Recovery Optimization Tips</h3>
+    <ul>
+      <li>Prioritize sleep quality and duration</li>
+      <li>Include active recovery days (walking, stretching)</li>
+      <li>Focus on proper nutrition and hydration</li>
+      <li>Consider stress management techniques</li>
+    </ul>
+
+    <div class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg mt-6">
+      <h3 class="text-blue-900 dark:text-blue-100">Important Note</h3>
+      <p class="text-blue-800 dark:text-blue-200">
+        These recommendations are starting points. Always listen to your body and adjust based on your individual response
+        to training. If you experience persistent fatigue or decreased performance, consider reducing volume or increasing
+        recovery time.
+      </p>
+    </div>
+  </div>
+</ToolLayout>

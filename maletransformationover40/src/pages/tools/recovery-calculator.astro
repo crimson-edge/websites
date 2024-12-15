@@ -1,0 +1,105 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import RecoveryCalculator from '../../components/calculators/RecoveryCalculator.astro';
+---
+
+<ToolLayout
+  title="Recovery Time Calculator"
+  description="Calculate optimal recovery periods based on your age, training intensity, and lifestyle factors. Designed specifically for men over 40."
+>
+  <div class="prose dark:prose-invert max-w-none mb-8">
+    <h2>Why Recovery is Critical After 40</h2>
+    <p>
+      As men age, recovery becomes increasingly important. Hormonal changes, decreased muscle protein synthesis,
+      and accumulated wear on joints mean that proper recovery is essential for continued progress and injury prevention.
+    </p>
+    
+    <div class="my-6">
+      <h3>Key Recovery Factors for Men Over 40</h3>
+      <ul>
+        <li><strong>Hormonal Changes:</strong> Natural decrease in testosterone affects recovery speed</li>
+        <li><strong>Muscle Protein Synthesis:</strong> Takes longer to rebuild muscle tissue</li>
+        <li><strong>Joint Health:</strong> Requires more attention to prevent overuse</li>
+        <li><strong>Sleep Quality:</strong> Becomes more crucial for recovery</li>
+      </ul>
+    </div>
+  </div>
+
+  <RecoveryCalculator />
+
+  <div class="prose dark:prose-invert max-w-none mt-8">
+    <div class="my-6 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+      <h3 class="mt-0">Understanding Your Results</h3>
+      
+      <h4>Recovery Time Interpretation</h4>
+      <ul>
+        <li><strong>Minimal (24-36 hours):</strong> Light workouts with good recovery conditions</li>
+        <li><strong>Moderate (48-72 hours):</strong> Standard recovery for most training sessions</li>
+        <li><strong>Extended (72-96 hours):</strong> High intensity or volume sessions</li>
+        <li><strong>Full (96+ hours):</strong> Very intense sessions or poor recovery conditions</li>
+      </ul>
+
+      <h4>Impact Factors</h4>
+      <ul>
+        <li>Training intensity and volume significantly affect recovery needs</li>
+        <li>Sleep quality can accelerate or delay recovery</li>
+        <li>Stress levels influence recovery capacity</li>
+        <li>Age-related factors are automatically considered</li>
+      </ul>
+    </div>
+
+    <h2>Optimizing Your Recovery</h2>
+
+    <h3>Sleep Optimization</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Sleep Hygiene Tips</h4>
+        <ul>
+          <li>Consistent sleep schedule</li>
+          <li>Dark, cool room environment</li>
+          <li>Limit screen time before bed</li>
+          <li>Avoid caffeine after 2 PM</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-2">Recovery Practices</h4>
+        <ul>
+          <li>Light stretching before bed</li>
+          <li>Deep breathing exercises</li>
+          <li>Magnesium supplementation</li>
+          <li>Stress management techniques</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Active Recovery Methods</h3>
+    <ul>
+      <li>Light cardio (walking, swimming)</li>
+      <li>Mobility work</li>
+      <li>Gentle yoga</li>
+      <li>Self-massage techniques</li>
+    </ul>
+
+    <div class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg mt-6">
+      <h3 class="text-blue-900 dark:text-blue-100 mt-0">Recovery Enhancement Tips</h3>
+      <ul class="text-blue-800 dark:text-blue-200">
+        <li>Stay hydrated throughout the day</li>
+        <li>Focus on protein-rich meals</li>
+        <li>Consider contrast therapy (hot/cold)</li>
+        <li>Use compression garments when needed</li>
+        <li>Practice stress management techniques</li>
+      </ul>
+    </div>
+
+    <div class="mt-6">
+      <h3>Signs of Inadequate Recovery</h3>
+      <ul>
+        <li>Persistent muscle soreness beyond 72 hours</li>
+        <li>Decreased performance in subsequent workouts</li>
+        <li>Poor sleep quality</li>
+        <li>Increased irritability</li>
+        <li>Joint discomfort</li>
+      </ul>
+    </div>
+  </div>
+</ToolLayout>

@@ -4,11 +4,221 @@ import HeroSection from '../components/sections/HeroSection.astro';
 import AboutSection from '../components/sections/AboutSection.astro';
 import ResourcesSection from '../components/sections/ResourcesSection.astro';
 import CoachingSection from '../components/sections/CoachingSection.astro';
+import SupplementationSection from '../components/sections/SupplementationSection.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import Testimonials from '../components/Testimonials.astro';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+const tools = [
+  {
+    title: "Body Composition Calculator",
+    description: "Calculate your Muscle Mass Index (MMI), Waist-to-Hip Ratio, and Body Fat Percentage.",
+    icon: "calculator",
+    link: "/tools/body-composition",
+    category: "Body Metrics"
+  },
+  {
+    title: "Recovery Time Calculator",
+    description: "Optimize your recovery periods based on age, training intensity, and lifestyle factors.",
+    icon: "clock",
+    link: "/tools/recovery-calculator",
+    category: "Training"
+  },
+  {
+    title: "Progressive Overload Calculator",
+    description: "Calculate optimal weight progression and training volume for sustained progress.",
+    icon: "dumbbell",
+    link: "/tools/progressive-overload",
+    category: "Training"
+  },
+  {
+    title: "Nutrition Planning Tool",
+    description: "Get personalized macro distributions and meal timing recommendations.",
+    icon: "utensils",
+    link: "/tools/nutrition-calculator",
+    category: "Nutrition"
+  },
+  {
+    title: "Strength Standards Calculator",
+    description: "View realistic strength benchmarks based on your age and experience level.",
+    icon: "chart-line",
+    link: "/tools/strength-standards",
+    category: "Performance"
+  },
+  {
+    title: "Exercise Selection Matrix",
+    description: "Find the best exercises based on your joint health and experience level.",
+    icon: "list-check",
+    link: "/tools/exercise-matrix",
+    category: "Training"
+  },
+  {
+    title: "Mobility Assessment Tool",
+    description: "Evaluate your mobility levels and get personalized improvement strategies.",
+    icon: "person-walking",
+    link: "/tools/mobility-assessment",
+    category: "Health"
+  },
+  {
+    title: 'Community',
+    description: 'Join our community of like-minded men over 40 to share experiences, get support, and discuss transformation strategies.',
+    icon: 'users',
+    category: 'Community',
+    links: [
+      { text: 'Facebook Group', url: 'https://facebook.com/groups/maletransformationover40' },
+      { text: 'Reddit Community', url: 'https://reddit.com/r/maletransformationover40' },
+      { text: 'Skool Group', url: 'https://skool.com/maletransformationover40' }
+    ]
+  }
+];
+
+const categories = [...new Set(tools.map(tool => tool.category))];
+
 ---
 
-<MainLayout title="Home">
+<MainLayout 
+  title="Male Transformation Over 40 - Expert Fitness & Nutrition Guidance"
+  description="Specialized fitness and nutrition guidance for men over 40. Transform your body and optimize your health with age-appropriate strategies and expert support."
+>
   <HeroSection />
-  <AboutSection />
-  <ResourcesSection />
-  <CoachingSection />
+  
+  <main class="min-h-screen py-12 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Hero Section -->
+      <div class="text-center mb-16">
+        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          Fitness Tools for Men Over 40
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Science-based calculators and tools designed to optimize your training, recovery, and nutrition.
+          Built specifically for the unique needs of men over 40.
+        </p>
+      </div>
+
+      <!-- Tools Grid -->
+      <section id="fitness-tools" class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {tools
+            .filter(tool => tool.category !== 'Community')
+            .map(tool => (
+              <a href={tool.link} 
+                 class="group bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 p-6 flex flex-col">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                    <i class={`fas fa-${tool.icon} text-xl text-blue-600 dark:text-blue-400`}></i>
+                  </div>
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {tool.title}
+                  </h3>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 flex-grow">
+                  {tool.description}
+                </p>
+                <div class="mt-4 flex items-center text-blue-600 dark:text-blue-400">
+                  <span class="text-sm font-medium">Try Calculator</span>
+                  <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+
+      <SupplementationSection />
+
+      <!-- Newsletter Section -->
+      <div class="my-16">
+        <div class="max-w-2xl mx-auto text-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+            Get Expert Tips & Strategies
+          </h2>
+          <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+            Join our community of men over 40 and receive weekly insights on fitness, nutrition, and healthy living.
+          </p>
+        </div>
+        <NewsletterSignup />
+      </div>
+
+      <!-- Testimonials Section -->
+      <Testimonials />
+
+      <!-- Community Section -->
+      <div class="mt-16">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Join Our Community</h2>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+              <i class="fas fa-users text-xl text-blue-600 dark:text-blue-400"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Connect with Like-minded Men</h3>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Join our community of like-minded men over 40 to share experiences, get support, and discuss transformation strategies.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://facebook.com/groups/maletransformationover40" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+              <i class="fab fa-facebook mr-2"></i>
+              Facebook Group
+            </a>
+            <a href="https://reddit.com/r/maletransformationover40" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 transition-colors">
+              <i class="fab fa-reddit mr-2"></i>
+              Reddit Community
+            </a>
+            <a href="https://skool.com/maletransformationover40" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 transition-colors">
+              <i class="fas fa-graduation-cap mr-2"></i>
+              Skool Group
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <div class="mt-20 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+          Why These Tools Matter for Men Over 40
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-lg">
+            <i class="fas fa-shield-alt text-3xl text-blue-600 dark:text-blue-400 mb-4"></i>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Age-Optimized</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              All calculations account for hormonal changes and recovery needs specific to men over 40.
+            </p>
+          </div>
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-lg">
+            <i class="fas fa-chart-line text-3xl text-blue-600 dark:text-blue-400 mb-4"></i>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Evidence-Based</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Built on scientific research and proven training methodologies for optimal results.
+            </p>
+          </div>
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-lg">
+            <i class="fas fa-user-shield text-3xl text-blue-600 dark:text-blue-400 mb-4"></i>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Safety-First</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Emphasizes joint health and sustainable progress to prevent injuries.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="mt-20 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+          Ready to Optimize Your Training?
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          Start with our Body Composition Calculator to establish your baseline, then use our other tools to create a comprehensive training plan.
+        </p>
+        <a href="/tools/body-composition" 
+           class="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+          Get Started
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </main>
 </MainLayout>

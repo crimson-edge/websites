@@ -1,0 +1,95 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<!-- Tailwind and Custom Styles -->
+<style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    font-family: system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+      Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+
+  /* Dark mode improvements */
+  .dark body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+
+  .dark .prose {
+    color: #ffffff;
+  }
+
+  .dark .prose h1,
+  .dark .prose h2,
+  .dark .prose h3,
+  .dark .prose h4,
+  .dark .prose h5,
+  .dark .prose h6 {
+    color: #ffffff;
+  }
+
+  .dark .prose strong {
+    color: #ffffff;
+  }
+
+  .dark .prose a {
+    color: #3b82f6;
+  }
+
+  .dark .prose blockquote {
+    color: #9ca3af;
+    border-left-color: #4b5563;
+  }
+
+  .dark .prose code {
+    color: #ffffff;
+    background-color: #374151;
+  }
+
+  .dark .prose hr {
+    border-color: #4b5563;
+  }
+
+  .dark .prose thead {
+    color: #ffffff;
+    border-bottom-color: #4b5563;
+  }
+
+  .dark .prose tbody tr {
+    border-bottom-color: #4b5563;
+  }
+</style>

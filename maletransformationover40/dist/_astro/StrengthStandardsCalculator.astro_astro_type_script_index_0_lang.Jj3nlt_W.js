@@ -1,0 +1,13 @@
+import{c as o}from"./calculators.B1B04EOU.js";const g=document.getElementById("strengthForm"),p=document.getElementById("results");g?.addEventListener("submit",n=>{n.preventDefault();const e=parseInt(document.getElementById("age").value),t=parseFloat(document.getElementById("weight").value),a=document.getElementById("experience").value,r=document.getElementById("joint_health").value,d=parseFloat(document.getElementById("bench_press").value)||0,s=parseFloat(document.getElementById("squat").value)||0,i=parseFloat(document.getElementById("deadlift").value)||0,c=o(e,t,"bench_press"),u=o(e,t,"squat"),m=o(e,t,"deadlift");f(e,t,a,r,{current:d,standards:c},{current:s,standards:u},{current:i,standards:m}),p?.classList.remove("hidden")});function f(n,e,t,a,r,d,s){l("benchResults",r,"Bench Press"),l("squatResults",d,"Squat"),l("deadliftResults",s,"Deadlift");const i=document.getElementById("progressAnalysis");i.innerHTML=y(r,d,s);const c=document.getElementById("recommendations");c.innerHTML=v(n,t,a)}function l(n,e,t){const a=document.getElementById(n);a.innerHTML=`
+      <p class="text-gray-700 dark:text-gray-300">Beginner: ${e.standards.beginner}lbs</p>
+      <p class="text-gray-700 dark:text-gray-300">Intermediate: ${e.standards.intermediate}lbs</p>
+      <p class="text-gray-700 dark:text-gray-300">Advanced: ${e.standards.advanced}lbs</p>
+      ${e.current?`<p class="text-gray-700 dark:text-gray-300 font-medium mt-2">Your ${t}: ${e.current}lbs</p>`:""}
+    `}function y(n,e,t){let a='<div class="space-y-3">';if(n.current||e.current||t.current){const r=h(n.current,e.current,t.current);a+=`
+        <div class="mb-4">
+          <h4 class="font-medium mb-2">Lift Ratios</h4>
+          <p class="text-sm">Deadlift to Squat: ${r.deadliftToSquat}</p>
+          <p class="text-sm">Squat to Bench: ${r.squatToBench}</p>
+        </div>
+      `}return a+="</div>",a}function h(n,e,t){return{deadliftToSquat:e?(t/e).toFixed(2):"N/A",squatToBench:n?(e/n).toFixed(2):"N/A"}}function v(n,e,t,a,r,d){let s='<ul class="list-disc pl-4 space-y-2">';return n>50&&(s+="<li>Consider using RPE (Rate of Perceived Exertion) instead of percentage-based training</li>"),(t==="fair"||t==="poor")&&(s+="<li>Focus on higher rep ranges (8-12) and perfect form</li>",s+="<li>Consider alternative exercises that are easier on the joints</li>"),e==="beginner"&&(s+="<li>Focus on mastering proper form before increasing weight</li>",s+="<li>Aim for steady progress of 2-5 lbs per week on main lifts</li>"),s+="</ul>",s}
+//# sourceMappingURL=StrengthStandardsCalculator.astro_astro_type_script_index_0_lang.Jj3nlt_W.js.map

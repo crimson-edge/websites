@@ -1,0 +1,63 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+}
+
+const { title, description, keywords } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Male Transformation Over 40" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": {title},
+        "description": {description},
+        "applicationCategory": "HealthAndFitness",
+        "operatingSystem": "Web Browser"
+      }
+    </script>
+  </head>
+  <body class="h-full bg-gray-50 dark:bg-gray-900">
+    <main class="min-h-full py-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+          <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">{title}</h2>
+            <p class="mt-2 text-gray-600 dark:text-gray-400">{description}</p>
+          </div>
+          
+          <div class="p-6">
+            <slot />
+          </div>
+          
+          <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-b-lg">
+            <slot name="results" />
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

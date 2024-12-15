@@ -1,0 +1,129 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const faqs = [
+  {
+    category: "Training",
+    questions: [
+      {
+        q: "How often should I train at my age?",
+        a: "For men over 40, we typically recommend 3-4 strength training sessions per week with adequate rest between sessions. This allows for proper recovery while maintaining consistent progress. Listen to your body and adjust frequency based on your recovery capacity."
+      },
+      {
+        q: "Should I still do heavy compound lifts?",
+        a: "Yes, compound lifts remain valuable, but form and proper progression become even more crucial. Start with manageable weights, focus on perfect form, and progress gradually. Consider using variations that are easier on the joints, like trap bar deadlifts instead of conventional deadlifts."
+      },
+      {
+        q: "How long should my workouts be?",
+        a: "Aim for 45-60 minutes of focused training. Quality over quantity becomes increasingly important as we age. This duration allows for thorough warm-up, effective working sets, and proper cool-down without overtaxing your recovery systems."
+      }
+    ]
+  },
+  {
+    category: "Nutrition",
+    questions: [
+      {
+        q: "How much protein do I need?",
+        a: "Men over 40 typically need 1.6-2.0 grams of protein per kilogram of body weight daily. This higher intake helps maintain muscle mass and supports recovery. Spread your intake across 4-5 meals throughout the day for optimal utilization."
+      },
+      {
+        q: "Should I follow a specific diet?",
+        a: "The best diet is one you can maintain long-term. Focus on whole foods, lean proteins, and plenty of vegetables. Our nutrition calculator can help you determine optimal macronutrient ratios based on your specific goals and activity level."
+      },
+      {
+        q: "What supplements are recommended?",
+        a: "Key supplements for men over 40 often include: protein powder for convenience, vitamin D3 for hormone support, fish oil for joint health, and magnesium for recovery. Always consult with your healthcare provider before starting any supplement regimen."
+      }
+    ]
+  },
+  {
+    category: "Recovery",
+    questions: [
+      {
+        q: "Why does recovery take longer now?",
+        a: "Natural hormonal changes, decreased protein synthesis, and accumulated wear on joints all contribute to longer recovery needs after 40. Use our Recovery Calculator to optimize your rest periods based on your specific factors."
+      },
+      {
+        q: "What are the best recovery methods?",
+        a: "Focus on quality sleep (7-9 hours), proper nutrition, stress management, and active recovery like walking or light mobility work. Consider techniques like contrast showers, massage, and gentle stretching to enhance recovery."
+      },
+      {
+        q: "How do I know if I'm overtraining?",
+        a: "Watch for signs like persistent fatigue, decreased performance, poor sleep, increased irritability, and ongoing joint pain. If you experience these symptoms, increase recovery time and reduce training intensity temporarily."
+      }
+    ]
+  },
+  {
+    category: "Using Our Tools",
+    questions: [
+      {
+        q: "How accurate are your calculators?",
+        a: "Our calculators are based on scientific research and specifically adjusted for men over 40. While they provide reliable guidelines, remember to use them as starting points and adjust based on your individual response."
+      },
+      {
+        q: "How often should I reassess my numbers?",
+        a: "Reassess every 8-12 weeks or whenever you experience significant changes in your training, recovery, or lifestyle factors. Regular reassessment helps ensure your program remains optimized for your current situation."
+      },
+      {
+        q: "Can I save my calculator results?",
+        a: "Currently, results need to be recorded manually. We recommend keeping a training journal or spreadsheet to track your numbers over time. This helps you identify trends and make informed adjustments to your program."
+      }
+    ]
+  }
+];
+---
+
+<MainLayout title="FAQ - Frequently Asked Questions">
+  <main class="min-h-screen py-12 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          Frequently Asked Questions
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-300">
+          Find answers to common questions about training, nutrition, and recovery for men over 40.
+        </p>
+      </div>
+
+      <div class="space-y-12">
+        {faqs.map((section) => (
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              {section.category}
+            </h2>
+            <div class="space-y-6">
+              {section.questions.map((faq) => (
+                <div class="border-b border-gray-200 dark:border-gray-700 pb-6 last:border-0 last:pb-0">
+                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                    {faq.q}
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 bg-blue-50 dark:bg-blue-900 rounded-lg p-6 text-center">
+        <h2 class="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-4">
+          Still Have Questions?
+        </h2>
+        <p class="text-blue-800 dark:text-blue-200 mb-6">
+          We're here to help! Reach out to us through our contact form and we'll get back to you as soon as possible.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+        >
+          Contact Us
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </main>
+</MainLayout>
