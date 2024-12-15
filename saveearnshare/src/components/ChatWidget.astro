@@ -1,0 +1,27 @@
+---
+---
+
+<script is:inline>
+  (function(d, m){
+    var kommunicateSettings = {
+      "appId": "2b14f12c3b85cfd2931e13c95d3dac5c7",
+      "popupWidget": true,
+      "automaticChatOpenOnNavigation": true
+    };
+    var s = document.createElement("script"); 
+    s.type = "text/javascript"; 
+    s.async = true;
+    s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+    var h = document.getElementsByTagName("head")[0]; 
+    h.appendChild(s);
+    window.kommunicate = m; 
+    m._globals = kommunicateSettings;
+  })(document, window.kommunicate || {});
+</script>
+
+<style is:inline>
+  #kommunicate-widget-iframe {
+    right: 20px !important;
+    bottom: 20px !important;
+  }
+</style>
