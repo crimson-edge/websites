@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
-  outDir: 'dist',
+  outDir: '/opt/build/repo/moneymasteryresources/dist',
   integrations: [tailwind()],
   image: {
     domains: ['unsplash.com'],
