@@ -1,8 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const productData = {
+  name: "Digital Couponing Guide",
+  description: "Comprehensive guide to digital couponing, rewards programs, and smart shopping strategies to help you save money on everyday purchases."
+};
 ---
 
-<Layout title="Digital Couponing Guide">
+<Layout 
+  title="Digital Couponing Guide" 
+  description={productData.description}
+  product={productData}
+>
   <!-- Featured Image Section -->
   <div class="relative h-[300px] sm:h-[400px] overflow-hidden">
     <img 
