@@ -1,4 +1,5 @@
 ---
+// Force rebuild - 2024-12-14T19:33
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ProductHighlight from '../components/ProductHighlight.astro';
@@ -15,19 +16,27 @@ interface Props {
   canonicalURL?: string;
 }
 
-const { 
-  title, 
-  description = "Money Mastery Resources - Your comprehensive guide to financial freedom, budgeting, debt management, and wealth building.",
-  image = "/og-image.png",
-  canonicalURL = Astro.url.origin
+const {
+  title = "Money Mastery Resources - Your Path to Financial Freedom",
+  description = "Discover expert financial resources, tools, and guidance to master your money. Access free calculators, guides, and educational content for better financial decisions.",
+  image = "/og-image.jpg", 
+  canonicalURL = Astro.url.href,
 } = Astro.props;
+
+// Format current date for sitemap
+const currentDate = new Date().toISOString();
+
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     
     <!-- Primary Meta Tags -->
     <title>{title}</title>
@@ -48,14 +57,24 @@ const {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
     
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Money Mastery Resources" />
+    <meta name="keywords" content="financial education, money management, investment guides, budgeting tools, retirement planning, debt reduction, financial calculators, personal finance" />
+    
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Preconnect to External Domains -->
+    <link rel="preconnect" href="https://widget.kommunicate.io" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
-    
-    <!-- Robots -->
-    <meta name="robots" content="index, follow" />
     
     <!-- Generator -->
     <meta name="generator" content={Astro.generator} />
@@ -72,6 +91,102 @@ const {
       gtag('js', new Date());
       gtag('config', 'G-BH74QJ8NYZ');
     </script>
+    <script type="text/javascript">
+      (function(d, m){
+        var kommunicateSettings = {
+          "appId":"3f09132016b3cf266174795d4e79e9299",
+          "popupWidget":true,
+          "automaticChatOpenOnNavigation":true
+        };
+        var s = document.createElement("script"); 
+        s.type = "text/javascript"; 
+        s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; 
+        h.appendChild(s);
+        window.kommunicate = m; 
+        m._globals = kommunicateSettings;
+      })(document, window.kommunicate || {});
+    </script>
+    <style is:global>
+      :root {
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          rgb(var(--accent-light)) 30%,
+          white 60%
+        );
+      }
+      
+      /* Base styles */
+      html {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        background: #13151a;
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      /* Mobile-first responsive typography */
+      html {
+        font-size: 16px;
+      }
+      @media (min-width: 768px) {
+        html {
+          font-size: 18px;
+        }
+      }
+
+      /* Improved touch targets for mobile */
+      @media (max-width: 768px) {
+        button, 
+        [role="button"],
+        input,
+        select,
+        a {
+          min-height: 44px;
+          min-width: 44px;
+        }
+      }
+
+      /* Safe area insets for modern mobile devices */
+      @supports(padding: max(0px)) {
+        body {
+          padding-left: min(0vmin, env(safe-area-inset-left));
+          padding-right: min(0vmin, env(safe-area-inset-right));
+          padding-bottom: min(0vmin, env(safe-area-inset-bottom));
+        }
+      }
+
+      /* Prevent zoom on input focus on iOS */
+      @media screen and (max-width: 768px) {
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+          font-size: 16px !important;
+        }
+      }
+
+      /* Smooth scrolling, but not for those who prefer reduced motion */
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+
+      /* Base responsive grid */
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+        gap: 1rem;
+        width: 100%;
+        padding: 0 1rem;
+      }
+    </style>
   </head>
   <body class="min-h-screen flex flex-col antialiased text-gray-900 bg-white">
     <Header />
@@ -84,14 +199,14 @@ const {
             description="Transform your credit score with our proven, AI-powered credit repair system. Boost your financial potential today!"
             buttonText="Get Started Now" 
             buttonLink="http://credit.crimsonedgeventures.com"
-            imageUrl="/images/credit-repair-magic.jpg"
+            imageUrl="/images/credit-repair.jpg"
           />
           <ProductHighlight 
             title="Wealth Switch" 
             description="Unlock your financial potential with our revolutionary wealth-building algorithm. Take control of your financial destiny!"
             buttonText="Activate Wealth Switch" 
             buttonLink="https://www.digistore24.com/redir/413844/CrimsonEdge/"
-            imageUrl="/images/wealth-switch.jpg"
+            imageUrl="/images/wealth-mindset.jpg"
           />
         </div>
       </div>
