@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BlogPost from '../components/BlogPost.astro';
+
+const posts = [
+  {
+    title: "10 Extreme Couponing Tips for Maximum Savings",
+    excerpt: "Learn the secrets of extreme couponing and how to maximize your savings on every purchase.",
+    date: "December 9, 2024",
+    image: "/images/blog/extreme-couponing.jpg",
+    slug: "extreme-couponing-tips"
+  },
+  {
+    title: "Master Guide to Finding and Using Digital Coupon Codes Online",
+    excerpt: "Discover expert strategies for finding and applying digital coupon codes to maximize your online shopping savings.",
+    date: "December 9, 2024",
+    image: "/images/blog/digital-coupon-codes.jpg",
+    slug: "digital-coupon-codes"
+  },
+  {
+    title: "Smart Holiday Shopping Strategies",
+    excerpt: "Get ready for the holiday season with these smart shopping strategies to save big.",
+    date: "December 9, 2024",
+    image: "/images/blog/holiday-savings.jpg",
+    slug: "holiday-shopping-strategies"
+  }
+];
+---
+
+<Layout title="Blog">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h1 class="text-4xl font-display font-bold text-gray-900 mb-8">The Couponing Insider</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {posts.map(post => (
+        <BlogPost
+          title={post.title}
+          excerpt={post.excerpt}
+          date={post.date}
+          image={post.image}
+          slug={post.slug}
+        />
+      ))}
+    </div>
+  </div>
+</Layout>
