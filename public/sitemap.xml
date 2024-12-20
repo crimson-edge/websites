@@ -1,27 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://moneymasteryresources.com/</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://moneymasteryresources.com/resources</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://moneymasteryresources.com/calculators</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://moneymasteryresources.com/blog</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-</urlset>
+<?xml version='1.0' encoding='utf-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://moneymasteryresources.com</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/about</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/blog</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/blog/getting-started-budgeting</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/blog/investment-strategies-beginners</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/blog/understanding-credit-scores</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/calculators/budgeting</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/calculators/credit-score</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/calculators/debt-repayment</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/calculators/net-worth</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/calculators/retirement-savings</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/contact</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/faq</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/privacy</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://moneymasteryresources.com/terms</loc><lastmod>2024-12-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url></urlset>
