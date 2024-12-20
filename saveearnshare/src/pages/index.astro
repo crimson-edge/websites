@@ -1,0 +1,177 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import VideoPlayer from '../components/VideoPlayer.astro';
+import BlogPost from '../components/BlogPost.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import Newsletter from '../components/Newsletter.astro';
+---
+
+<Layout title="Home">
+  <div class="bg-gradient-to-b from-white to-background">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+      <div class="text-center">
+        <h1 class="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-gray-900 mb-4 sm:mb-6">
+          Save Big, Shop Smart
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0">
+          Your ultimate toolkit for extreme couponing, loyalty rewards, and smart shopping strategies.
+        </p>
+        <a href="#resources" class="inline-block bg-primary text-white px-6 sm:px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors text-base sm:text-lg mb-12">
+          Explore Resources
+        </a>
+
+        <!-- Interactive Counters -->
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 mt-16">
+          <div class="text-center">
+            <div class="text-4xl font-bold text-primary mb-2">
+              {(() => {
+                const LAUNCH_DATE = new Date('2023-01-01').getTime();
+                const now = new Date('2024-12-14T17:41:05-08:00').getTime();
+                const daysSinceLaunch = Math.floor((now - LAUNCH_DATE) / (1000 * 60 * 60 * 24));
+                const baseMembers = 15000;
+                const dailyGrowth = 25;
+                return Math.floor(baseMembers + (daysSinceLaunch * dailyGrowth)).toLocaleString() + '+'
+              })()}
+            </div>
+            <p class="text-gray-600">Active Members</p>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-primary mb-2">
+              {(() => {
+                const avgSavingsPerMember = 450; // Average yearly savings per member
+                const activeMembers = 19445; // Should match the calculation above
+                const totalSavings = Math.floor(avgSavingsPerMember * activeMembers);
+                return '$' + totalSavings.toLocaleString()
+              })()}
+            </div>
+            <p class="text-gray-600">Total Member Savings</p>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-primary mb-2">98%</div>
+            <p class="text-gray-600">Member Satisfaction</p>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <VideoPlayer videoId="Ij4ti3_sCco" title="Save Earn Share Introduction" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="features" class="py-12 sm:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-8 sm:mb-12 text-center">Essential Tools & Resources</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <a href="/savings-calculator" class="block">
+          <FeatureCard
+            title="Savings Calculator"
+            description="Plan your savings and calculate potential returns from stacking coupons."
+            icon="calculator"
+          />
+        </a>
+        <a href="/couponing-calculator" class="block">
+          <FeatureCard
+            title="Coupon Calculator"
+            description="Calculate your total savings with our interactive coupon calculator."
+            icon="calculator"
+          />
+        </a>
+        <a href="/coupon-database" class="block">
+          <FeatureCard
+            title="Coupon Database"
+            description="Search through our extensive database of digital and printable coupons."
+            icon="database"
+          />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources" class="py-12 sm:py-16 bg-background">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-8 sm:mb-12 text-center">Latest Resources</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <ResourceCard
+          title="Advanced Coupon Combining Strategy Ebook"
+          description="Download our comprehensive guide to mastering advanced coupon stacking techniques."
+          href="/downloads/Advanced_Couponing_Tutorial_Final.pdf"
+        />
+        <ResourceCard
+          title="Store Reward Programs"
+          description="Learn how to maximize benefits from store loyalty programs and rewards cards."
+          href="/store-rewards-guide"
+        />
+        <ResourceCard
+          title="Digital Couponing Guide"
+          description="Master the art of finding and using digital coupons from various online sources."
+          href="/digital-couponing-guide"
+        />
+      </div>
+    </div>
+  </section>
+  <!-- Testimonials Section -->
+  <Testimonials />
+  
+  <FAQ />
+
+  <Newsletter />
+  
+  <!-- Blog Section -->
+  <section class="bg-gray-50 py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-display font-bold text-center text-gray-900 mb-12">
+        Latest Blog Posts
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <BlogPost
+          title="10 Extreme Couponing Tips for Maximum Savings"
+          excerpt="Learn the secrets of extreme couponing and how to maximize your savings on every purchase."
+          image="/images/blog/extreme-couponing.jpg"
+          date="December 9, 2024"
+          slug="extreme-couponing-tips"
+        />
+        <BlogPost
+          title="Master Guide to Finding and Using Digital Coupon Codes Online"
+          excerpt="Discover how to find and apply digital coupon codes to maximize your online shopping savings."
+          image="/images/blog/digital-coupon-codes.jpg"
+          date="December 9, 2024"
+          slug="digital-coupon-codes"
+        />
+        <BlogPost
+          title="Smart Holiday Shopping Strategies"
+          excerpt="Get ready for the holiday season with these smart shopping strategies to save big."
+          image="/images/blog/holiday-savings.jpg"
+          date="December 9, 2024"
+          slug="holiday-shopping-strategies"
+        />
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      const increment = target / speed;
+
+      const updateCount = () => {
+        const count = +counter.innerText;
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 1);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+    });
+  </script>
+</Layout>
