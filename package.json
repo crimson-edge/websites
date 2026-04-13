@@ -21,7 +21,7 @@
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
-    "axe-core": "^4.7.2",
+    "axe-core": "^4.11.3",
     "lighthouse": "^13.0.3",
     "pa11y-ci": "^4.1.0"
   }
